@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>खेल-खेल में गणित सीखें</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f6f9ff,#dceeff);
+transition:0.4s;
+overflow-x:hidden;
+}
+
+.dark{
+background:#0f172a;
+color:white;
+}
+
+header{
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(15px);
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#2563eb;
+}
+
+nav a{
+text-decoration:none;
+margin:0 15px;
+font-weight:500;
+color:#333;
+}
+
+.dark nav a{
+color:white;
+}
+
+.toggle{
+padding:10px 15px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+}
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text h1{
+font-size:3rem;
+margin-bottom:20px;
+color:#1d4ed8;
+}
+
+.hero-text p{
+font-size:1.1rem;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.btn{
+padding:14px 28px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:40px;
+display:inline-block;
+}
+
+.hero img{
+width:450px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-15px);}
+}
+
+.section-title{
+text-align:center;
+font-size:2.3rem;
+margin:70px 0 40px;
+}
+
+.games{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+padding:0 8%;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+color:#2563eb;
+margin-bottom:15px;
+}
+
+.counter-section{
+padding:70px 8%;
+display:flex;
+justify-content:space-around;
+text-align:center;
+}
+
+.counter h2{
+font-size:3rem;
+color:#2563eb;
+}
+
+.counter p{
+font-size:1.1rem;
+}
+
+.timeline{
+padding:40px 8%;
+}
+
+.step{
+background:white;
+margin:20px 0;
+padding:20px;
+border-left:6px solid #2563eb;
+border-radius:10px;
+}
+
+.contact{
+padding:80px 8%;
+text-align:center;
+}
+
+input,textarea{
+width:100%;
+max-width:600px;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+footer{
+background:#1e293b;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+.floating{
+position:fixed;
+width:60px;
+height:60px;
+background:rgba(37,99,235,0.15);
+border-radius:50%;
+animation:move 15s linear infinite;
+}
+.slider{
+width:90%;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+}
+
+.slide img{
+width:100%;
+height:450px;
+object-fit:cover;
+}
+@keyframes move{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
+}
+.feature-card{
+background:white;
+padding:30px;
+border-radius:20px;
+transition:.4s;
+transform-style:preserve-3d;
+}
+
+.feature-card:hover{
+transform:
+perspective(1000px)
+rotateX(10deg)
+rotateY(10deg)
+translateY(-15px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="floating" style="left:10%"></div>
+<div class="floating" style="left:70%;animation-delay:4s"></div>
+<div class="floating" style="left:40%;animation-delay:8s"></div>
+
+<header>
+<div class="logo">🧮 Maths Fun</div>
+
+<nav>
+<a href="#">होम</a>
+<a href="#">गेम्स</a>
+<a href="#">गतिविधियाँ</a>
+<a href="#">संपर्क</a>
+</nav>
+
+<button class="toggle" onclick="toggleMode()">🌙 Mode</button>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<h1>खेल-खेल में गणित सीखें</h1>
+
+<p>
+बच्चों को गणित सिखाने का सबसे मजेदार तरीका है खेल और गतिविधियाँ।
+रंग, ब्लॉक्स, कार्ड गेम्स और दैनिक जीवन के उदाहरणों से गणित को आसान बनाएं।
+</p>
+
+<a href="#" class="btn">शुरू करें</a>
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png">
+</section>
+
+<h2 class="section-title">मज़ेदार गणित गेम्स</h2>
+
+<section class="games">
+
+<div class="card">
+<h3>🎲 Dice Addition</h3>
+<p>पासा फेंककर जोड़ सीखें।</p>
+</div>
+
+<div class="card">
+<h3>🍫 Chocolate Fractions</h3>
+<p>चॉकलेट बाँटकर भिन्न समझें।</p>
+</div>
+
+<div class="card">
+<h3>🛒 Shopping Maths</h3>
+<p>खरीदारी के जरिए जोड़-घटाव सीखें।</p>
+</div>
+
+<div class="card">
+<h3>🧩 Number Puzzle</h3>
+<p>पहेलियों के माध्यम से संख्या ज्ञान बढ़ाएँ।</p>
+</div>
+
+</section>
+
+<h2 class="section-title">हमारी उपलब्धियाँ</h2>
+
+<section class="counter-section">
+
+<div class="counter">
+<h2 class="count" data-target="5000">0</h2>
+<p>बच्चे</p>
+</div>
+
+<div class="counter">
+<h2 class="count" data-target="250">0</h2>
+<p>गतिविधियाँ</p>
+</div>
+
+<div class="counter">
+<h2 class="count" data-target="100">0</h2>
+<p>गेम्स</p>
+</div>
+
+</section>
+
+<h2 class="section-title">सीखने की यात्रा</h2>
+
+<section class="timeline">
+
+<div class="step">
+<h3>1️⃣ गिनती सीखें</h3>
+<p>खिलौनों और वस्तुओं की गिनती करें।</p>
+</div>
+
+<div class="step">
+<h3>2️⃣ जोड़-घटाव</h3>
+<p>कार्ड और पासे के साथ अभ्यास करें।</p>
+</div>
+
+<div class="step">
+<h3>3️⃣ गुणा-भाग</h3>
+<p>टेबल गेम्स और ग्रुप गतिविधियों का उपयोग करें।</p>
+</div>
+
+</section>
+
+<section class="contact">
+<h2 class="section-title">संपर्क करें</h2>
+
+<input type="text" placeholder="नाम">
+<br>
+
+<input type="email" placeholder="ईमेल">
+<br>
+
+<textarea rows="5" placeholder="संदेश"></textarea>
+<br>
+
+<button class="btn">भेजें</button>
+</section>
+<section class="ai-generator">
+  <h2>AI Maths Activity Generator</h2>
+
+  <select id="grade">
+    <option>कक्षा 1</option>
+    <option>कक्षा 2</option>
+    <option>कक्षा 3</option>
+    <option>कक्षा 4</option>
+    <option>कक्षा 5</option>
+  </select>
+
+  <button onclick="generateActivity()">
+    Activity Generate करें
+  </button>
+
+  <div id="activityResult"></div>
+</section>
+
+<script>
+function generateActivity(){
+ const activities = [
+  "10 खिलौनों की गिनती करके जोड़ करें",
+  "पासा फेंककर दो संख्याओं का योग निकालें",
+  "घर की वस्तुओं से आकृतियाँ पहचानें",
+  "फल बाँटकर भिन्न (Fractions) सीखें"
+ ];
+
+ document.getElementById("activityResult").innerHTML =
+ activities[Math.floor(Math.random()*activities.length)];
+}
+</script>
+<section class="game-box">
+<h2>Multiplication Challenge</h2>
+
+<p id="question"></p>
+
+<input type="number" id="answer">
+<button onclick="checkAnswer()">Check</button>
+
+<h3 id="result"></h3>
+</section>
+
+<script>
+let num1 = Math.floor(Math.random()*10)+1;
+let num2 = Math.floor(Math.random()*10)+1;
+
+document.getElementById("question").innerHTML =
+`${num1} × ${num2} = ?`;
+
+function checkAnswer(){
+ let ans = document.getElementById("answer").value;
+
+ if(ans == num1*num2){
+   result.innerHTML = "✅ Correct!";
+ }
+ else{
+   result.innerHTML = "❌ Try Again";
+ }
+}
+</script>
+<section class="progress-section">
+<h2>Learning Progress</h2>
+
+<div class="progress-card">
+<p>Addition</p>
+<progress value="80" max="100"></progress>
+</div>
+
+<div class="progress-card">
+<p>Subtraction</p>
+<progress value="70" max="100"></progress>
+</div>
+
+<div class="progress-card">
+<p>Multiplication</p>
+<progress value="60" max="100"></progress>
+</div>
+</section>
+<div class="slider">
+
+<div class="slide active">
+<img src="images/math1.jpg">
+</div>
+
+<div class="slide">
+<img src="images/math2.jpg">
+</div>
+
+<div class="slide">
+<img src="images/math3.jpg">
+</div>
+
+</div>
+<div class="feature-card">
+<h3>🎲 Dice Maths</h3>
+<p>Fun addition and subtraction game.</p>
+</div>
+<footer>
+© 2026 खेल-खेल में गणित सीखें | Designed with ❤️
+</footer>
+
+<script>
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+let counters=document.querySelectorAll(".count");
+
+counters.forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute("data-target");
+let count=+counter.innerText;
+
+let inc=target/100;
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}
+else{
+counter.innerText=target;
+}
+}
+update();
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दुकानदार का खेल - बाल बाज़ार</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts (Poppins for modern look, Notosans for Hindi) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600 tracking-wide">🏪 बाल बाज़ार</div>
+            <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="#about" class="hover:text-indigo-600 transition">खेल के बारे में</a>
+                <a href="#how-to-play" class="hover:text-indigo-600 transition">कैसे खेलें?</a>
+                <a href="#resources" class="hover:text-indigo-600 transition">फ्री रिसोर्सेज</a>
+            </nav>
+            <button class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-md font-medium">
+                अभी शुरू करें
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-20 px-4">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <span class="bg-indigo-500 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">प्रैक्टिकल लर्निंग प्लेटफॉर्म</span>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight">दुकानदार का खेल</h1>
+            <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto">
+                बच्चे अब रटकर नहीं, बल्कि अपना **नकली बाज़ार** बनाकर खेल-खेल में पैसे जोड़ना और घटाना प्रैक्टिकल तरीके से सीखेंगे।
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#how-to-play" class="bg-white text-indigo-700 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition text-center">खेलना शुरू करें</a>
+                <a href="#resources" class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-indigo-700 transition text-center">टूलकिट डाउनलोड करें</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Game? (Features) -->
+    <section id="about" class="py-16 max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">यह खेल बच्चों के लिए क्यों ज़रूरी है?</h2>
+            <p class="text-gray-500 mt-2">किताबी गणित बोरिंग हो सकता है, लेकिन व्यापार नहीं!</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">💰</div>
+                <h3 class="text-xl font-bold mb-2">जोड़ना और घटाना</h3>
+                <p class="text-gray-600 text-sm">सामान खरीदने और बचे हुए पैसे (चेंज) वापस देने के दौरान बच्चे तेजी से गणित सीखते हैं।</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🤝</div>
+                <h3 class="text-xl font-bold mb-2">कम्युनिकेशन स्किल्स</h3>
+                <p class="text-gray-600 text-sm">ग्राहक और दुकानदार बनकर बात करने से बच्चों का आत्मविश्वास और बातचीत की कला सुधरती है।</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center">
+                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🧠</div>
+                <h3 class="text-xl font-bold mb-2">क्रिटिकल थिंकिंग</h3>
+                <p class="text-gray-600 text-sm">"क्या मेरे पास इस खिलौने के लिए पर्याप्त पैसे हैं?" - बच्चे बजट बनाना और सही फैसले लेना सीखते हैं।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-to-play" class="bg-gray-100 py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">खेल कैसे सेटअप करें?</h2>
+                <p class="text-gray-600 mt-2">सिर्फ 3 आसान स्टेप्स में घर या क्लासरूम को बाज़ार बनाएं</p>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-indigo-200 md:before:mx-auto">
+                <!-- Step 1 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between">
+                    <div class="w-full md:w-5/12 md:text-right order-2 md:order-1 mt-4 md:mt-0">
+                        <h4 class="text-lg font-bold text-indigo-600">स्टेप 1: दुकान सजाएं</h4>
+                        <p class="text-gray-600 mt-1">घर के खिलौने, किताबें, या स्नैक्स को टेबल पर रखें। नीचे दिए गए हमारे 'प्राइस टैग्स' प्रिंट करके उनपर कीमतें (जैसे ₹10, ₹25) लिखें।</p>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold z-10">1</div>
+                    <div class="w-full md:w-5/12 order-1 md:order-2"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between">
+                    <div class="w-full md:w-5/12 order-2 md:order-2">
+                        <h4 class="text-lg font-bold text-indigo-600">स्टेप 2: नकली नोट बांटें</h4>
+                        <p class="text-gray-600 mt-1">बच्चों को खेलने के लिए हमारे प्रिंट करने योग्य नकली नोट (₹10, ₹20, ₹50) दें। एक बच्चे को दुकानदार और बाकी को ग्राहक बनाएं।</p>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold z-10">2</div>
+                    <div class="w-full md:w-5/12 order-1 md:order-1"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between">
+                    <div class="w-full md:w-5/12 md:text-right order-2 md:order-1 mt-4 md:mt-0">
+                        <h4 class="text-lg font-bold text-indigo-600">स्टेप 3: व्यापार और हिसाब</h4>
+                        <p class="text-gray-600 mt-1">ग्राहक सामान चुनेंगे, दुकानदार कुल बिल जोड़ेगा। अगर ग्राहक ₹50 देता है और बिल ₹35 है, तो दुकानदार को ₹15 घटाकर वापस करने होंगे!</p>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold z-10">3</div>
+                    <div class="w-full md:w-5/12 order-1 md:order-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources / Downloads -->
+    <section id="resources" class="py-16 max-w-7xl mx-auto px-4">
+        <div class="bg-indigo-50 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 max-w-xl">
+                <h2 class="text-3xl font-bold text-indigo-900">फ्री 'बाल बाज़ार' टूलकिट डाउनलोड करें</h2>
+                <p class="text-indigo-700">इस पीडीएफ टूलकिट में आपको मिलेंगे रंग-बिरंगे नकली भारतीय नोट, सिक्के, रेडीमेड प्राइस टैग्स और एक मिनी बिल बुक शीट।</p>
+                <ul class="space-y-2 text-indigo-900 font-medium">
+                    <li>✓ 📄 प्रिंट करने योग्य नकली नोट (₹10 से ₹100)</li>
+                    <li>✓ 🏷️ खाली और प्री-फिल्ड प्राइस टैग्स</li>
+                    <li>✓ 📝 बच्चों के लिए आसान बिल-बुक फॉर्मेट</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-auto text-center">
+                <button class="w-full sm:w-auto bg-indigo-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-indigo-700 transition inline-flex items-center justify-center gap-2">
+                    📥 मुफ्त टूलकिट डाउनलोड करें (PDF)
+                </button>
+                <p class="text-xs text-indigo-500 mt-2">साइज: ~2.4 MB | बिल्कुल मुफ्त</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800 text-center">
+        <p class="text-sm">© 2026 दुकानदार का खेल (बाल बाज़ार)। बच्चों के भविष्य को उज्ज्वल बनाने का एक प्रयास।</p>
+    </footer>
+
+</body>
+</html>

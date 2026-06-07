@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multiplication Master Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+header{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+.stats{
+display:flex;
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:10px 20px;
+border-radius:15px;
+}
+
+.hero{
+text-align:center;
+padding:50px 20px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.play-btn{
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+background:#22c55e;
+color:white;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.box{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:25px;
+border-radius:20px;
+}
+
+.question{
+font-size:40px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+font-size:20px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px 20px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.correct{
+background:#22c55e;
+color:white;
+}
+
+.dark-toggle{
+background:#6366f1;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🎮 Multiplication Master Pro
+</div>
+
+<div class="stats">
+
+<div class="card">
+⭐ XP: <span id="xp">0</span>
+</div>
+
+<div class="card">
+💎 Coins: <span id="coins">0</span>
+</div>
+
+<div class="card">
+🔥 Streak: <span id="streak">0</span>
+</div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Multiply Like a Champion</h1>
+
+<button class="play-btn" onclick="generateQuestion()">
+Start Game
+</button>
+
+</section>
+
+<section class="dashboard">
+
+<div class="box">
+
+<h2>Question</h2>
+
+<div class="question" id="question">
+Click Start
+</div>
+
+<input type="number" id="answer">
+
+<button class="correct" onclick="checkAnswer()">
+Submit
+</button>
+
+</div>
+
+<div class="box">
+
+<h2>Achievements</h2>
+
+<ul id="achievements">
+<li>🎖️ First Win</li>
+</ul>
+
+</div>
+
+<div class="box">
+
+<h2>Leaderboard</h2>
+
+<p>🏆 Highest Score: <span id="highscore">0</span></p>
+
+</div>
+
+<div class="box">
+
+<h2>Analytics</h2>
+
+<p>Accuracy: <span id="accuracy">0%</span></p>
+
+<p>Total Questions: <span id="total">0</span></p>
+
+</div>
+
+</section>
+
+<script>
+
+let a,b,correct;
+
+let xp=0;
+let coins=0;
+let streak=0;
+
+let total=0;
+let correctCount=0;
+
+function generateQuestion(){
+
+a=Math.floor(Math.random()*12)+1;
+b=Math.floor(Math.random()*12)+1;
+
+correct=a*b;
+
+document.getElementById("question").innerHTML=
+`${a} × ${b}`;
+
+}
+
+function checkAnswer(){
+
+let user=
+Number(document.getElementById("answer").value);
+
+total++;
+
+if(user===correct){
+
+xp+=10;
+coins+=5;
+streak++;
+correctCount++;
+
+alert("✅ Correct!");
+
+}
+else{
+
+streak=0;
+
+alert("❌ Wrong! Answer = "+correct);
+
+}
+
+document.getElementById("xp").innerHTML=xp;
+document.getElementById("coins").innerHTML=coins;
+document.getElementById("streak").innerHTML=streak;
+
+let acc=
+Math.round((correctCount/total)*100);
+
+document.getElementById("accuracy").innerHTML=
+acc+"%";
+
+document.getElementById("total").innerHTML=
+total;
+
+generateQuestion();
+
+}
+
+</script>
+
+</body>
+</html>

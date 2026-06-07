@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lifestyle Hub | Live Better Every Day</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+}
+
+header{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('life.jfif');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-content{
+max-width:800px;
+padding:20px;
+color:white;
+}
+
+.hero-content h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:linear-gradient(135deg,#2563eb,#7l3aed);
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+body{
+
+background-size:400% 400%;
+animation:gradientBG 15s ease infinite;
+}
+
+.logo-glass{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glowText 4s linear infinite;
+
+    margin: 0;
+}
+@keyframes glowText{
+    0%{
+        background-position: 0% center;
+    }
+    100%{
+        background-position: 200% center;
+    }
+}
+.hero{
+background-attachment:fixed;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+hero-image {
+            width: 100%;
+            height: 500px;
+            background: url('l1.png') center/cover no-repeat;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+.main-layout {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            padding: 20px;
+        }
+.card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1350&q=80') center/cover;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #57606f;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        /* Article Cards Styling */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+            width: 100%; /* Fixed fixed-width issue */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .badge {
+            align-self: flex-start;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .badge.parenting { background-color: var(--primary); }
+        .badge.edu { background-color: var(--secondary); }
+        .badge.health { background-color: var(--accent); }
+        .badge.lifestyle { background-color: var(--warning); }
+
+        .card-body h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .card-body p {
+            font-size: 14px;
+            color: #636e72;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .read-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sidebar Widgets */
+        
+
+        .widget {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .widget h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+@media (max-width: 992px) {
+            .main-layout { grid-template-columns: 1fr; }
+            aside { margin-top: 20px; }
+        }
+</style>
+</head>
+
+<body>
+
+<header>
+<p class="logo-glass">LifestyleHub</p>
+<div class="hero-content">
+<h1>Transform Your Lifestyle</h1>
+<p>Discover wellness, fashion, productivity, travel inspiration and healthy habits for a better life.</p>
+</div>
+</header>
+
+<div class="main-layout">
+        
+        <main>
+            <div class="articles-grid">
+                
+                <a href="l1.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card">
+        <div class="card-img" style="background-image:url('l1.png');"></div>
+        <div class="card-body">
+            <span class="badge lifestyle">डिजिटल लाइफ</span>
+            <h3>सादगी: आधुनिक युग की नई लग्ज़री</h3>
+            <p>आज की व्यस्त दुनिया में सादगी को एक समझदार और संतुलित जीवनशैली माना जाता है।</p>
+            <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+        </div>
+
+    </div>
+</a>
+
+<a href="l2.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card">
+                    <div class="card-img" style="background-image:url('l2.png');"></div>
+                    <div class="card-body">
+                        <span class="badge parenting">पैरेंटिंग</span>
+                        <h3>जिद्दी बच्चों को प्यार से कैसे संभालें?</h3>
+                        <p>बच्चा बात-बात पर रोता या जिद करता है? अपनाएं ये 5 मनोवैज्ञानिक तरीके जो बच्चों का व्यवहार बिना गुस्सा किए सुधार देंगे।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="l3.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('l3.png');"></div>
+                    <div class="card-body">
+                        <span class="badge lifestyle">घर और परिवेश</span>
+                        <h3>बच्चों का रूम (Room) कैसा होना चाहिए?</h3>
+                        <p>पढ़ाई में एकाग्रता और बेहतर मानसिक विकास के लिए बच्चों के कमरे का रंग, लाइट और वास्तु सेटिंग कैसी हो, जानिए यहाँ।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="l4.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('l4.png');"></div>
+                    <div class="card-body">
+                        <span class="badge edu">बाल शिक्षा</span>
+                        <h3>खेल-खेल में गणित (Maths) कैसे सिखाएं?</h3>
+                        <p>गणित के डर को कहें बाय-बाय! इन मजेदार घरेलू खेलों और एक्टिविटीज की मदद से बच्चों को आसानी से जोड़-घटाना सिखाएं।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+                </div>
+</a>
+<a href="l5.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('l5.png');"></div>
+                    <div class="card-body">
+                        <span class="badge parenting">आदतें</span>
+                        <h3>अंगूठा चूसने की आदत को कैसे छुड़ाएं?</h3>
+                        <p>बढ़ती उम्र में भी बच्चों का अंगूठा चूसना दांतों के लिए नुकसानदेह हो सकता है। जानिए इसे छुड़ाने के सुरक्षित और आसान घरेलू उपाय।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="l6.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('l6.png');"></div>
+                    <div class="card-body">
+                        <span class="badge health">स्वास्थ्य व योग</span>
+                        <h3>याददाश्त तेज करने के लिए 3 आसान योगासन</h3>
+                        <p>बच्चों की मेमोरी और फोकस पावर बढ़ाने के लिए कारगर योगासन जैसे भ्रामरी प्राणायाम और वृक्षासन की स्टेप-बाय-स्टेप गाइड।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+            </div>
+        </main>
+
+</body>
+</html>

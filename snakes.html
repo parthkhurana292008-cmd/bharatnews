@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Dice Snakes & Ladders</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-green: #4ade80;
+            --accent-red: #f87171;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --p1-color: #3b82f6;
+            --p2-color: #ec4899;
+        }
+
+        body {
+
+            font-family: 'Fredoka', 'Quicksand', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+font-family:'Fredoka','Quicksand',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:var(--text-main);
+
+
+       background: linear-gradient(
+        -45deg,
+        #ff6b6b,
+        #ffd93d,
+        #6bcB77,
+        #4d96ff,
+        #b967ff
+    );
+  
+    background-size:400% 400%;
+    animation:gradientMove 15s ease infinite;
+        }
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.particles span{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    animation:float 18s linear infinite;
+}
+
+.particles span:nth-child(1){left:10%; animation-delay:0s;}
+.particles span:nth-child(2){left:25%; animation-delay:2s;}
+.particles span:nth-child(3){left:40%; animation-delay:4s;}
+.particles span:nth-child(4){left:55%; animation-delay:6s;}
+.particles span:nth-child(5){left:70%; animation-delay:8s;}
+.particles span:nth-child(6){left:80%; animation-delay:10s;}
+.particles span:nth-child(7){left:90%; animation-delay:12s;}
+.particles span:nth-child(8){left:50%; animation-delay:14s;}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120px) scale(1.5);
+        opacity:0;
+    }
+}
+        /* Board Wrapper and Grid Styling */
+       #board-wrapper{
+    position:relative;
+    width:480px;
+    height:480px;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+
+    border-radius:24px;
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 40px rgba(56,189,248,.25),
+        0 0 80px rgba(74,222,128,.15);
+}
+.token{
+    animation:pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.12);
+        box-shadow:
+            0 0 15px rgba(255,255,255,.6),
+            0 0 30px rgba(56,189,248,.6);
+    }
+}
+.flex.flex-col.lg\:flex-row{
+    animation:cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+            border: 1px solid #1f2937;
+            position: relative;
+        }
+
+        .cell:nth-child(odd) { background-color: #111827; }
+        .cell:nth-child(even) { background-color: #1f2937; }
+
+        /* Board Features (Snakes & Ladders Layer) */
+        #board-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Player Token Styling */
+        .token {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 20;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+            border: 2.5px solid #ffffff;
+        }
+
+        #p1-token { background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8); }
+        #p2-token { background: radial-gradient(circle at 30% 30%, #f472b6, #be185d); }
+
+        #log::-webkit-scrollbar {
+            width: 4px;
+        }
+        #log::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+
+        /* Fun Glow Effects for Snakes and Ladders */
+        .ladder-shadow {
+            filter: drop-shadow(0px 0px 4px rgba(74, 222, 128, 0.6));
+        }
+        .snake-shadow {
+            filter: drop-shadow(0px 0px 5px rgba(248, 113, 113, 0.7));
+        }
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 md:p-8">
+
+    <header class="text-center mb-6 w-full max-w-5xl flex flex-col md:flex-row justify-between items-center gap-4">
+        
+        <div>
+           <h1 class="text-3xl font-extrabold tracking-wide text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
+    🎲 Math Dice Snakes & Ladders
+</h1>
+            <p class="text-slate-400 text-sm">Your correct answer represents your 1 to 6 dice roll!</p>
+        </div>
+        <div class="w-28 hidden md:block"></div>
+    </header>
+
+    <div class="flex flex-col lg:flex-row gap-8 bg-slate-900 p-6 rounded-3xl shadow-2xl max-w-5xl w-full border border-slate-800">
+        
+        <div class="flex justify-center items-center">
+            <div id="board-wrapper">
+                <div id="board"></div>
+                <svg id="board-svg"></svg>
+                <div id="p1-token" class="token"></div>
+                <div id="p2-token" class="token"></div>
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col gap-5 justify-between">
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div id="p1-card" class="bg-slate-950 p-4 rounded-2xl border-2 border-sky-500 shadow-lg transition-all">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                        <span class="font-bold text-sm text-slate-200">Player 1</span>
+                    </div>
+                    <div id="p1-pos" class="text-xs text-slate-400 mt-1 font-semibold">Location: Base (0)</div>
+                </div>
+
+                <div id="p2-card" class="bg-slate-950 p-4 rounded-2xl border-2 border-transparent transition-all">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-pink-500"></div>
+                        <span class="font-bold text-sm text-slate-200">Player 2</span>
+                    </div>
+                    <div id="p2-pos" class="text-xs text-slate-400 mt-1 font-semibold">Location: Base (0)</div>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-center">
+                <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2" id="turn-indicator">
+                    Player 1's Turn
+                </div>
+                <h3 class="text-slate-400 text-sm font-medium mb-2">Solve the question to roll the dice (1-6):</h3>
+                <div class="text-4xl font-extrabold text-purple-400 mb-4 bg-slate-900 py-3 rounded-xl border border-slate-800 tracking-wide" id="math-question">
+                    -- + -- = ?
+                </div>
+                
+                <div class="grid grid-cols-3 gap-3" id="math-options">
+                    </div>
+                
+                <div class="text-sm font-bold mt-3 text-slate-400" id="math-feedback">
+                    Awaiting selection... 👇
+                </div>
+            </div>
+
+            <div id="log" class="bg-slate-950 p-4 rounded-xl h-28 overflow-y-auto text-xs text-slate-400 flex flex-col-reverse gap-1 border border-slate-800">
+                <div class="text-emerald-400">Match started! Answer correctly to make a move.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Snakes & Ladders Config maps
+        const boardFeatures = {
+            ladders: { 4: 25, 13: 46, 33: 49, 42: 63, 50: 69, 62: 81, 74: 92 },
+            snakes: { 27: 5, 40: 3, 43: 18, 54: 31, 66: 45, 89: 53, 99: 41 }
+        };
+
+        const boardElement = document.getElementById('board');
+        const svgElement = document.getElementById('board-svg');
+        const logElement = document.getElementById('log');
+        const questionElement = document.getElementById('math-question');
+        const optionsContainer = document.getElementById('math-options');
+        const feedbackElement = document.getElementById('math-feedback');
+        const turnIndicator = document.getElementById('turn-indicator');
+
+        let players = [
+            { id: 1, pos: 0, element: document.getElementById('p1-token'), card: document.getElementById('p1-card'), posText: document.getElementById('p1-pos') },
+            { id: 2, pos: 0, element: document.getElementById('p2-token'), card: document.getElementById('p2-card'), posText: document.getElementById('p2-pos') }
+        ];
+        
+        let currentPlayerIndex = 0;
+        let cellCoordinates = {};
+        let currentCorrectAnswer = 0;
+        let isProcessingTurn = false;
+
+        // Boustrophedon Grid Construction Logic
+        function generateBoard() {
+            boardElement.innerHTML = '';
+            for (let row = 9; row >= 0; row--) {
+                for (let col = 0; col < 10; col++) {
+                    let cellId = (row % 2 === 1) ? (row * 10) + (10 - col) : (row * 10) + (col + 1);
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.id = `cell-${cellId}`;
+                    cell.innerText = cellId;
+                    boardElement.appendChild(cell);
+                }
+            }
+        }
+
+        // Cache positions of all cell centroids
+        function updateCoordinatesMapping() {
+            for (let i = 1; i <= 100; i++) {
+                const cell = document.getElementById(`cell-${i}`);
+                cellCoordinates[i] = {
+                    x: cell.offsetLeft + cell.offsetWidth / 2,
+                    y: cell.offsetTop + cell.offsetHeight / 2
+                };
+            }
+        }
+
+        // Render Realistic Snakes & Ladders on SVG Layer
+        function drawFeatures() {
+            svgElement.innerHTML = '';
+            
+            // Render Ladders with structured rungs instead of simple lines
+            for (let [start, end] of Object.entries(boardFeatures.ladders)) {
+                drawLadderFeature(cellCoordinates[start], cellCoordinates[end]);
+            }
+            
+            // Render Snakes with realistic colored gradients and distinct thickness
+            for (let [start, end] of Object.entries(boardFeatures.snakes)) {
+                drawSnakeFeature(cellCoordinates[start], cellCoordinates[end]);
+            }
+        }
+
+        // Helper: Generates beautiful graphic ladders with parallel side rails & rungs
+        function drawLadderFeature(start, end) {
+            const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            group.setAttribute('class', 'ladder-shadow');
+
+            const dx = end.x - start.x;
+            const dy = end.y - start.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Offset coordinates for parallel rail tracks
+            const offsetX = (dy / distance) * 5;
+            const offsetY = (-dx / distance) * 5;
+
+            // Rail 1
+            const rail1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            rail1.setAttribute('x1', start.x + offsetX); rail1.setAttribute('y1', start.y + offsetY);
+            rail1.setAttribute('x2', end.x + offsetX); rail1.setAttribute('y2', end.y + offsetY);
+            rail1.setAttribute('stroke', '#4ade80'); rail1.setAttribute('stroke-width', '3');
+            group.appendChild(rail1);
+
+            // Rail 2
+            const rail2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            rail2.setAttribute('x1', start.x - offsetX); rail2.setAttribute('y1', start.y - offsetY);
+            rail2.setAttribute('x2', end.x - offsetX); rail2.setAttribute('y2', end.y - offsetY);
+            rail2.setAttribute('stroke', '#4ade80'); rail2.setAttribute('stroke-width', '3');
+            group.appendChild(rail2);
+
+            // Step Rungs across the rails
+            const stepsCount = Math.floor(distance / 16);
+            for(let i = 1; i < stepsCount; i++) {
+                const ratio = i / stepsCount;
+                const rx = start.x + dx * ratio;
+                const ry = start.y + dy * ratio;
+
+                const rung = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                rung.setAttribute('x1', rx + offsetX); rung.setAttribute('y1', ry + offsetY);
+                rung.setAttribute('x2', rx - offsetX); rung.setAttribute('y2', ry - offsetY);
+                rung.setAttribute('stroke', '#22c55e'); rung.setAttribute('stroke-width', '2.5');
+                group.appendChild(rung);
+            }
+            svgElement.appendChild(group);
+        }
+
+        // Helper: Generates thick wavy snakes using SVG paths instead of straight lines
+        function drawSnakeFeature(start, end) {
+            const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            group.setAttribute('class', 'snake-shadow');
+
+            const dx = end.x - start.x;
+            const dy = end.y - start.y;
+            
+            // Create control nodes for organic spline curves
+            const cx1 = start.x + dx * 0.25 + (dy * 0.15);
+            const cy1 = start.y + dy * 0.25 - (dx * 0.15);
+            const cx2 = start.x + dx * 0.75 - (dy * 0.15);
+            const cy2 = start.y + dy * 0.75 + (dx * 0.15);
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', `M ${start.x} ${start.y} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${end.x} ${end.y}`);
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', '#f87171');
+            path.setAttribute('stroke-width', '6');
+            path.setAttribute('stroke-linecap', 'round');
+            group.appendChild(path);
+
+            // Inner styling line to mimic details on snake body texture
+            const innerPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            innerPath.setAttribute('d', `M ${start.x} ${start.y} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${end.x} ${end.y}`);
+            innerPath.setAttribute('fill', 'none');
+            innerPath.setAttribute('stroke', '#b91c1c');
+            innerPath.setAttribute('stroke-width', '2');
+            innerPath.setAttribute('stroke-dasharray', '4,4');
+            group.appendChild(innerPath);
+
+            // Draw a tiny distinct circle representing Snake head node at the starting cell
+            const head = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            head.setAttribute('cx', start.x);
+            head.setAttribute('cy', start.y);
+            head.setAttribute('r', '5.5');
+            head.setAttribute('fill', '#ef4444');
+            group.appendChild(head);
+
+            svgElement.appendChild(group);
+        }
+
+        // Render precise physical translations for tokens
+        function moveTokenVisual(player) {
+            if (player.pos === 0) {
+                player.element.style.left = (player.id === 1) ? '-25px' : '-45px';
+                player.element.style.top = '450px';
+                player.posText.innerText = 'Location: Base (0)';
+            } else {
+                const coords = cellCoordinates[player.pos];
+                const duplicateOffset = (players[0].pos === players[1].pos) ? (player.id === 1 ? -6 : 6) : 0;
+                player.element.style.left = `${coords.x - 12 + duplicateOffset}px`;
+                player.element.style.top = `${coords.y - 12}px`;
+                player.posText.innerText = `Tile Box: ${player.pos}`;
+            }
+        }
+
+        // Dynamic Mathematical Engine: Generates expressions with absolute outcomes within 1-6 bounds
+        function generateMathQuestion() {
+            if (players[0].pos === 100 || players[1].pos === 100) return;
+
+            // Step 1: Pre-calculate the dice outcome (1 to 6)
+            currentCorrectAnswer = Math.floor(Math.random() * 6) + 1;
+
+            // Step 2: Decide random arithmetic operator variation (+ or -)
+            const isAddition = Math.random() < 0.5;
+            let num1, num2;
+
+            if (isAddition) {
+                num2 = Math.floor(Math.random() * currentCorrectAnswer);
+                num1 = currentCorrectAnswer - num2;
+                
+                if (num1 === 0) { // Keep equations zero-free for kids
+                    num1 = Math.floor(Math.random() * 4) + 1;
+                    num2 = currentCorrectAnswer + num1;
+                    questionElement.innerText = `${num2} - ${num1} = ?`;
+                } else {
+                    questionElement.innerText = `${num1} + ${num2} = ?`;
+                }
+            } else {
+                num2 = Math.floor(Math.random() * 8) + 2;
+                num1 = currentCorrectAnswer + num2;
+                questionElement.innerText = `${num1} - ${num2} = ?`;
+            }
+
+            // Step 3: Produce highly deceptive multiple-choice alternates
+            let wrongOpt1 = currentCorrectAnswer + 1 > 6 ? currentCorrectAnswer - 2 : currentCorrectAnswer + 1;
+            let wrongOpt2 = currentCorrectAnswer - 1 < 1 ? currentCorrectAnswer + 2 : currentCorrectAnswer - 1;
+            if (wrongOpt1 === wrongOpt2) wrongOpt2 += 1;
+
+            let options = [currentCorrectAnswer, wrongOpt1, wrongOpt2];
+            options.sort(() => Math.random() - 0.5);
+
+            optionsContainer.innerHTML = '';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "bg-slate-800 hover:bg-slate-700 border-2 border-slate-700 font-bold py-2 px-4 rounded-xl text-lg transition shadow-md text-sky-400 cursor-pointer disabled:opacity-50";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(opt);
+                optionsContainer.appendChild(btn);
+            });
+
+            const activePlayer = players[currentPlayerIndex];
+            turnIndicator.innerText = `Player ${activePlayer.id}'s Turn`;
+            turnIndicator.style.color = activePlayer.id === 1 ? 'var(--p1-color)' : 'var(--p2-color)';
+        }
+
+        function logMessage(msg) {
+            const entry = document.createElement('div');
+            entry.className = "py-0.5 border-b border-slate-900";
+            entry.innerHTML = msg;
+            logElement.prepend(entry);
+        }
+
+        // Central Verification Logic triggered on Option Selection
+        async function checkAnswer(selectedOption) {
+            if (isProcessingTurn) return;
+            isProcessingTurn = true;
+
+            const buttons = optionsContainer.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = true);
+
+            let activePlayer = players[currentPlayerIndex];
+
+            if (selectedOption === currentCorrectAnswer) {
+                const steps = currentCorrectAnswer;
+                
+                feedbackElement.innerText = `🎉 Correct! Your simulated dice rolled: ${steps}`;
+                feedbackElement.className = "text-sm font-bold mt-3 text-green-400";
+                logMessage(`<span style="color: #4ade80">✔ Player ${activePlayer.id} answered correctly and moves ${steps} steps.</span>`);
+
+                let targetPos = activePlayer.pos + steps;
+                
+                if (targetPos > 100) {
+                    logMessage(`Player ${activePlayer.id} needs an exact score to finish. Turn skipped.`);
+                } else {
+                    activePlayer.pos = targetPos;
+                    moveTokenVisual(activePlayer);
+                    
+                    await new Promise(resolve => setTimeout(resolve, 600));
+
+                    // Obstacle/Bonus Validation
+                    if (boardFeatures.ladders[activePlayer.pos]) {
+                        activePlayer.pos = boardFeatures.ladders[activePlayer.pos];
+                        logMessage(`🚀 Brilliant! Player ${activePlayer.id} climbed a ladder to box ${activePlayer.pos}!`);
+                        moveTokenVisual(activePlayer);
+                    } else if (boardFeatures.snakes[activePlayer.pos]) {
+                        activePlayer.pos = boardFeatures.snakes[activePlayer.pos];
+                        logMessage(`🐍 Oh no! Player ${activePlayer.id} was swallowed by a snake down to box ${activePlayer.pos}.`);
+                        moveTokenVisual(activePlayer);
+                    }
+
+                    // Win Check
+                    if (activePlayer.pos === 100) {
+                        logMessage(`👑 VICTORY! Player ${activePlayer.id} won the match!`);
+                        alert(`🎉 Congratulations! Player ${activePlayer.id} wins the game!`);
+                        resetGame();
+                        return;
+                    }
+                }
+            } else {
+                feedbackElement.innerText = "❌ Incorrect! You receive 0 steps.";
+                feedbackElement.className = "text-sm font-bold mt-3 text-red-400";
+                logMessage(`<span style="color: #f87171">❌ Player ${activePlayer.id} selected a wrong option. Turn handed over.</span>`);
+            }
+
+            // Move Active Selection States to the Next Competitor
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            feedbackElement.innerText = "Awaiting selection... 👇";
+            feedbackElement.className = "text-sm font-bold mt-3 text-slate-400";
+
+            activePlayer.card.classList.remove('border-sky-500');
+            activePlayer.card.classList.add('border-transparent');
+            
+            currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
+            
+            players[currentPlayerIndex].card.classList.remove('border-transparent');
+            players[currentPlayerIndex].card.classList.add('border-sky-500');
+
+            isProcessingTurn = false;
+            generateMathQuestion();
+        }
+
+        function resetGame() {
+            players.forEach(p => { p.pos = 0; moveTokenVisual(p); });
+            currentPlayerIndex = 0;
+            players[0].card.classList.add('border-sky-500');
+            players[0].card.classList.remove('border-transparent');
+            players[1].card.classList.add('border-transparent');
+            players[1].card.classList.remove('border-sky-500');
+            isProcessingTurn = false;
+            logMessage("<span class='text-yellow-400'>--- Fresh Match Restarted ---</span>");
+            generateMathQuestion();
+        }
+
+        // Window Handlers
+        window.addEventListener('load', () => {
+            generateBoard();
+            updateCoordinatesMapping();
+            drawFeatures();
+            players.forEach(moveTokenVisual);
+            generateMathQuestion();
+        });
+
+        window.addEventListener('resize', () => {
+            updateCoordinatesMapping();
+            drawFeatures();
+            players.forEach(moveTokenVisual);
+        });
+    </script>
+</body>
+</html>

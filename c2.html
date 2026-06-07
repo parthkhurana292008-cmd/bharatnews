@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="navbar.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Bharat News - Today's Latest News (आज की ताजा खबर)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            question.parentElement.classList.toggle('active');
+        });
+    });
+});
+</script>
+
+</script>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+        :root{
+    --primary-color:#1e40af;
+    --secondary-color:#3b82f6;
+    --accent-color:#dbeafe;
+    --text-dark:#0f172a;
+    --text-light:#475569;
+    --bg-light:#f8fafc;
+}
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+          
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+          /* Layout Grid */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+        }
+
+        /* Article Cards */
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 20px;
+        }
+.content-card1{
+    width: 95%;
+    max-width: 1500px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    line-height: 1.9;
+}
+
+        h2 {
+            color:#1e3a8a;
+    font-weight:800;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-12px;
+    width:90px;
+    height:5px;
+    border-radius:50px;
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+}
+
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Special Alert/Quote Box */
+        .insight-box {
+            background-color: var(--accent-color);
+            border-left: 5px solid #dd6b20;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        /* Quick Tips List Style */
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+		background:#f8fafc;
+    border-left:4px solid #2563eb;
+        }
+
+
+        .tips-list li::before {
+            content: "❤️";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.1rem;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .compare-table th, .compare-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .compare-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+     .compare-table td {
+    text-align: left;
+}
+
+        /* Sidebar Quick Actions */
+        .sidebar {
+            background:#ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow:0 10px 30px rgba(15,23,42,.08);
+            height: fit-content;
+            border-top: 5px solid var(--primary-color);
+border:1px solid #e2e8f0;
+    
+        }
+.sidebar h2,
+.sidebar h3{
+             color: var(--primary-color);
+            margin-bottom: 15px;
+color:#0f172a !important;
+            font-size: 1.3rem;
+        }
+
+        .psychology-fact {
+            background:#eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            border-left:4px solid #2563eb;
+        }
+
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:10px;
+    color:#111827;
+font-weight:800;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+  
+    margin-bottom:12px;
+    color:#1e293b;
+    font-size:1.35rem;
+    font-weight:700;
+}
+.tips{
+    background:#eef2ff;
+    border-radius:20px;
+    padding:40px;
+}
+
+.tips ul{
+    margin-left:20px;
+}
+
+.quote{
+     background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:#ffffff !important;
+    text-align:center;
+    padding:40px 20px;
+    border-radius:25px;
+}
+
+.quote h2{
+    font-size:2rem;
+ color:white;
+
+}
+
+
+.hero-banner {
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+
+.hero-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-banner p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.3rem;
+}
+
+.faq-container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+    .faq-title{
+      text-align:center;
+      margin-bottom:30px;
+      font-size:32px;
+      color:#003366;
+    }
+
+   .faq-item{
+      background:white;
+      border-radius:12px;
+      margin-bottom:15px;
+      overflow:hidden;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+border:1px solid #dbeafe;
+    }
+
+    .faq-question{
+      padding:20px;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      position:relative;
+      transition:0.3s;
+      background:#ffffff;
+color:#1e293b;
+    }
+.text-4xl.font-black{
+    color:#0f172a;
+}
+    .faq-question:hover{
+      background:#eff6ff;
+    }
+
+.faq-question::after{
+    content:"+";
+    position:absolute;
+    right:20px;
+    font-size:24px;
+    transition:.3s;
+}
+
+.faq-item.active .faq-question::after{
+    content:"−";
+}
+
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 0 20px 20px 20px;
+}
+.card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+.card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+/* ==========================
+   PREMIUM HERO BANNER
+========================== */
+
+.hero-banner{
+    background: linear-gradient(135deg,#fef7e6,#fff,#e8f8ff);
+    padding:80px 8%;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero-banner::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,193,7,0.15);
+    border-radius:50%;
+    top:-100px;
+    left:-100px;
+    filter:blur(80px);
+}
+
+.hero-banner::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(33,150,243,0.15);
+    border-radius:50%;
+    bottom:-100px;
+    right:-100px;
+    filter:blur(80px);
+}
+
+.hero-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    position:relative;
+    z-index:2;
+}
+
+/* Text Area */
+
+.hero-text h1{
+    color:#0f172a;
+    font-weight:900;
+    letter-spacing:-0.04em;
+    text-shadow:none;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:#fff;
+    color:#ff9800;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+.hero-text h1{
+    font-size:3rem;
+    color:#0f172a;
+    line-height:1.2;
+    margin-bottom:20px;
+    font-weight:900;
+letter-spacing:-0.04em;
+    text-shadow:none;
+}  
+}
+
+.hero-text p{
+    font-size:1.15rem;
+    color:#475569;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* Buttons */
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#ff9800,#ff6f00);
+    color:white;
+    box-shadow:0 8px 20px rgba(255,152,0,0.3);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-secondary{
+    background:white;
+    color:#333;
+    border:2px solid #ddd;
+}
+
+.btn-secondary:hover{
+    background:#f8f8f8;
+    transform:translateY(-4px);
+}
+
+/* Image Card */
+
+.hero-card{
+    flex:1;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.12);
+    transition:0.4s;
+}
+
+.hero-card:hover{
+    transform:translateY(-8px);
+}
+
+.hero-card img{
+    width:100%;
+    display:block;
+    border-radius:22px;
+max-width: 1600px;  /* इमेज को 600 पिक्सल से बड़ा नहीं होने देगा (अपनी जरूरत अनुसार बदलें) */
+    height: auto;  
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .hero-container{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:2.2rem;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+}
+</style>
+
+<style id="professional-upgrade">
+body{
+background:linear-gradient(180deg,#f8fafc,#eef6ff);
+}
+.container{max-width:1400px!important;width:95%!important;}
+.main-wrapper{gap:32px!important;align-items:start;}
+.content-card,.content-card1,.sidebar{
+border:1px solid rgba(0,0,0,.05);
+box-shadow:0 15px 40px rgba(15,23,42,.08)!important;
+}
+.content-card1{
+width:95%!important;
+max-width:1500px!important;
+margin:40px auto!important;
+}
+.content-card:hover,.card:hover,.sidebar:hover{
+transform:translateY(-4px);
+transition:.3s ease;
+}
+h2{
+    font-size: 2.8rem;
+    
+ font-size:clamp(2rem,4vw,3rem);
+    font-weight:800;
+    color:#0f172a;
+    line-height:1.25;
+    letter-spacing:-0.03em;
+    margin-bottom:24px;
+    position:relative;
+}
+
+
+.tips-list li{
+background:#f8fbff;
+padding:18px 18px 18px 45px!important;
+border-radius:12px;
+margin-bottom:14px!important;
+}
+.compare-table{
+overflow:hidden;
+border-radius:16px;
+}
+.compare-table th{
+font-size:1.05rem;
+}
+.main-heading{
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+}
+</style>
+
+</head>
+
+<body>
+   
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+    <div class="hero-container">
+
+        <div class="hero-text">
+            
+
+            <h1>जिद्दी बच्चों को प्यार से कैसे संभालें?</h1>
+
+            <p style="color: blue; font-size: 18px; font-weight: bold;">पॉजिटिव पैरेंटिंग (Positive Parenting) के आसान, प्रभावी और वैज्ञानिक तरीके जो बच्चों के व्यवहार को बेहतर बनाने में मदद करते हैं। </p>
+
+                   </div>
+
+        <div class="hero-card">
+            <img src="c2.png" alt="जिद्दी बच्चों को प्यार से संभालें" style="width: 300px; height: auto;">
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Main Section -->
+    <div class="container main-wrapper">
+        
+        <!-- Left Column: Core Guide -->
+        <main>
+            <!-- Card 1: Understanding -->
+            <section class="content-card">
+                <h2 class="main-heading">बच्चे की ज़िद को समझें </h2>
+<br>
+<br>
+                <p>अक्सर माता-पिता बच्चों की ज़िद को उनका बुरा व्यवहार मान लेते हैं। लेकिन बाल मनोवैज्ञानिकों (Child Psychologists) के अनुसार, बच्चे जानबूझकर परेशान करने के लिए ज़िद नहीं करते। जब वे अपनी भावनाओं (जैसे थकावट, भूख, डर या ध्यान न मिलना) को शब्दों में व्यक्त नहीं कर पाते, तो वे ज़िद का सहारा लेते हैं। “ज़िद्दी” बच्चा उस व्यवहार को कहते हैं जिसमें वह बहुत दृढ़ रहता है, अपनी मनमर्जी करता है, लगातार “नहीं” कहता है या रो-टूटकर गुस्सा ज़ाहिर करता है। अक्सर यह tantrum (चिल्लाना, रोना, जमीन पर लोटना) के रूप में दिखता है। विशेषज्ञों के अनुसार तेज गुस्सा-फूट (temper tantrum) 1.5–5 वर्ष तक सामान्य है और दिन में 5–10 मिनट तक रहता है। छोटे बच्चे भागवत भाषा की कमी के कारण अपनी ज़रूरतें नहीं बता पाते, इसलिए आक्रोश झेलकर tantrum करते हैं। उदाहरण के लिए, जब बच्चा भूखा, थका या बेचैन होता है, तब वह चिड़चिड़ा हो सकता है। इस उम्र में बच्चे “स्वतंत्र होने” की चाह रखते हैं, लेकिन क्षमताओं के बाहर चीज़ें करने पर गुस्सा आता है। ज़िद्दीपन के और कारणों में बच्चे का स्वभाव (temperament) भी शामिल है—कुछ बच्चे जन्म से अधिक जुझारू या आत्मनिर्णयी होते हैं। इसके अलावा, यदि घर पर असंतुलित माहौल हो, माता-पिता विरोधी तरीके से डाँट-फटकार या ढीले नियम रखें, तो भी बच्चा ज़िद्दी हो सकता है। बहरहाल, ज़िद्दीपन की जड़ अक्सर अनमेट जरूरतें (भूख, नींद, स्वाभाविक सक्रियता) और संवेदी असुविधा (तेज रोशनी, तेज़ आवाज़) में भी होती है। उदाहरणतः, नाबालिग बच्चे जब थके या भूखे होते हैं, तो झटपट चिल्लाने लगते हैं।</p>
+                
+                <div class="insight-box">
+                    <strong>याद रखें:</strong> एक जिद्दी बच्चा अक्सर एक दृढ़ इच्छाशक्ति (Strong-Willed) वाला बच्चा होता है, जो भविष्य में आत्मनिर्भर और साहसी बनता है। बस उनके इस हुनर को सही दिशा देने की ज़रूरत है।
+                </div>
+            </section>
+	</main>
+
+
+	<!-- Right Column: Sidebar (Psychology Insights) -->
+        <aside class="sidebar">
+<h2 class="main-heading" style="text-align: center;">चाइल्ड साइकोलॉजी फैक्ट्स</h2>
+            
+            <p style="font-size: 0.9rem; color: #718096; margin-bottom: 15px;">बच्चों के मन को समझने के लिए छोटी मगर ज़रूरी बातें:</p>
+            
+            <div class="psychology-fact">
+                <strong>नकल से सीखते हैं:</strong> बच्चे वह नहीं करते जो आप उन्हें करने को कहते हैं, बल्कि वे वह करते हैं जो आपको करते हुए देखते हैं। अगर आप शांत रहेंगे, तो वे भी शांत रहना सीखेंगे।
+            </div>
+
+            <div class="psychology-fact">
+                <strong>क्वालिटी टाइम:</strong> दिन भर में कम से कम 15-20 मिनट बच्चे को बिना मोबाइल या टीवी के पूरा ध्यान (Undivided Attention) दें। इससे उनकी बेवजह ज़िद करने की आदत 70% तक कम हो जाती है।
+            </div>
+
+            <div class="psychology-fact">
+                <strong>तारीफ करें:</strong> जब भी आपका बच्चा कोई अच्छी बात माने, तो उसकी तारीफ सबके सामने करें। इससे उसका हौसला बढ़ता है।
+            </div>
+        </aside>
+  </div>
+
+
+            <!-- Card 2: Practical Tips -->
+            <section class="content-card1">
+               <h2 class="main-heading">प्यार से संभालने के 5 अचूक उपाय</h2>
+<br>
+<br>
+                <p>जब बच्चा किसी चीज़ के लिए अड़ जाए, तो चिल्लाने या हाथ उठाने के बजाय इन तरीकों को आज़माएं:</p>
+                
+                <ul class="tips-list">
+                    <li><strong>बहस करने से बचें (चिल्लाएं नहीं):</strong> जब बच्चा जिद करता है, तो माता-पिता भी अक्सर चिल्लाने लगते हैं। याद रखें, बच्चे वही सीखते हैं जो वो देखते हैं। जब आप बच्चे पर चिल्लाते हैं, तो वह "फाइट या फ्लाइट" मोड में चला जाता है। चीखने और थप्पड़ मारने से स्थिति बिगड़ेगी। शांत रहकर बात करने से बच्चा जल्दी सामान्य होता है।</li>
+                    <li><strong>सुनें, फिर कहें:</strong> बच्चे कई बार सिर्फ इसलिए जिद्दी हो जाते हैं क्योंकि उन्हें लगता है कि उनकी बात कोई सुन नहीं रहा है। बच्चे के स्तर पर आकर (आंखों में आंखें डालकर) उसकी बात सुनें। उसे महसूस होने दें कि उसकी राय आपके लिए मायने रखती है। जब उसे लगेगा कि उसे सुना जा जा रहा है, तो उसकी जिद अपने आप कम हो जाएगी।  जब बच्चे को लगता है कि उसे सुना जा रहा है, तो उसका गुस्सा आधा हो जाता है।</li>
+                    <li><strong>आदेश देने के बजाय 'विकल्प' दें:</strong> अगर आप बच्चे को किसी काम के लिए सीधे 'ना' कहेंगे, तो वह और ज्यादा जिद करेगा। इसकी जगह उन्हें खुद चुनने की आजादी दें। उदाहरण: "क्या तुम दूध पीओगे या जूस?”। इससे बच्चा नियंत्रण महसूस करता है और सहयोग करता है।</li>
+		   <li><strong>जिद के आगे घुटने न टेकें:</strong> प्यार से संभालने का मतलब यह बिल्कुल नहीं है कि आप उसकी हर गलत मांग को पूरा करें। अगर आपने किसी चीज के लिए मना किया है (जैसे: खाना खाने से पहले चॉकलेट नहीं मिलेगी), तो अपनी बात पर टिके रहें। अगर आप उसकी जिद के आगे झुक गए, तो बच्चा सीख जाएगा कि रोने-धोने से हर काम हो जाता है।</li>
+                    <li><strong>ध्यान भटकाएं (Distraction technique):</strong> छोटे बच्चों के मामले में ज़िद वाली चीज़ से उनका ध्यान हटाकर किसी दिलचस्प काम या खेल की तरफ लगाना बेहद कारगर होता है।</li>
+                    <li><strong>सकारात्मक भाषा का प्रयोग करें:</strong> "धूप में मत जाओ" कहने के बजाय कहें "चलो, अंदर छांव में खेलते हैं।" 'ना' या 'मत' शब्द बच्चों को ज्यादा अट्रैक्ट करते हैं।</li>
+		    <li><strong>अच्छे व्यवहार की तारीफ करें:</strong> अक्सर हम बच्चे के गलत व्यवहार पर तो तुरंत टोकते हैं, लेकिन जब वह कुछ अच्छा करता है, तो उस पर ध्यान नहीं देते। अच्छे व्यवहार की तुरंत तारीफ़ करें। जब भी आपका बच्चा बिना जिद किए आपकी बात माने या खिलौने समेट कर रखे, तो उसकी खुलकर तारीफ करें। कहें, "आज आपने बहुत अच्छे बच्चे की तरह बात मानी, मुझे आप पर गर्व है।" “शाबाश, तुमने अपनी किताब पढ़ ली!” तारीफ करें कि क्या अच्छा किया (न कि केवल “बढ़िया!”)। जितनी अधिक बार हम किसी व्यवहार पर ध्यान देंगे, वह उतनी ही बार दुहराया जाएगा। यह तारीफ उसे आगे भी अच्छा व्यवहार करने के लिए प्रेरित करेगी। </li>
+		    <li><strong>उनके साथ क्वालिटी टाइम बिताएं:</strong> आजकल की भागदौड़ भरी जिंदगी में बच्चे कई बार सिर्फ ध्यान (Attention) खींचने के लिए भी जिद्दी व्यवहार करने लगते हैं। दिनभर में कम से कम 20-30 मिनट सिर्फ बच्चे के नाम करें। उसके साथ खेलें, बातें करें और हंसें। जब बच्चे का आपके साथ एक मजबूत इमोशनल कनेक्शन होगा, तो वह आपकी बात को ज्यादा आसानी से मानेगा। </li>
+<li><strong>शांत संवाद:</strong> गुस्सा न दिखाएं। “मैं” वाक्यों का प्रयोग करें: “मुझे बुरा लग रहा है जब तुम चीखते हो”। बच्चे की आँखों में बैठकर धीरे बोलें, उसकी भावनाएँ दोहराएं (“मैं समझता हूँ तुम गुस्सा हो”)। इससे बच्चा महसूस करेगा कि आपने उसकी बात सुनी है। </li>
+<li><strong>भावनात्मक कोचिंग:</strong>  बच्चे को शब्द देकर भावनाएँ समझाएं: “मुझे पता है तुम नाराज़ हो क्योंकि…”। गुस्सा, उदासी, डर जैसी भावनाओं का नाम सिखाएं और बताएं कि उन्हें स्वीकार करना वैध है। उदाहरणतः, कहें “मैं देख रहा हूँ तुम नाराज़ हो; गहरी साँस लो और बताओ क्या हुआ?” इससे बच्चा सीखता है कि भावना व्यक्त करना ठीक है और परिपक्व तरीके से शांत होना भी सीखता है।</li>
+<li><strong>टाइम-इन:</strong> क्रोध के समय बच्चे को अलग कोने में ले बैठें, उसे गले लगाएं और उनकी भावनाएँ साझा करें। “टाइम-आउट” (निःशब्द कुर्सी) के बजाय, “टाइम-इन” में बच्चा माता-पिता के साथ बैठकर बातें करता है और शांति से समझता है कि गुस्से में क्या गलत हुआ। यंग बच्चों के लिए (3 वर्ष से नीचे) टाइम-आउट से पहले यह अच्छा विकल्प है। </li>
+<li><strong>नियम और दिनचर्या</strong> नियम तोड़ने पर शांति से परिणाम बताएं। उदाहरण: “अगर तुम खिलौने नहीं उठाओगी, तो अब उन्हें प्लेएरिया में नहीं ले जाओगी।”。 वादा पूरा करें और झूठे धमकी से बचें। हमेशा याद रखें कि परिणाम उचित और उम्र के अनुरूप होने चाहिए (खेलने के घंटे में कटौती, पसंदीदा टीवी प्रोग्राम न देख पाना आदि)।। </li>
+<li><strong>अनुमोदन (Modeling) :</strong> बच्चे को वह दिखाएं जो आप चाहते हैं। उदाहणार्थ, यदि आप शांत रहकर समस्या सुलझा सकते हैं, तो बच्चा भी सीखेगा। अपने व्यवहार को role-model बनाएँ—जिस तरह से आप चीज़ें संभालते हैं, बच्चा उससे सीखता है। </li>
+<li><strong>समस्या-समाधान (Problem-Solving):</strong> झगड़े के बाद बच्चा शांत होने पर चर्चा करें कि समस्या क्या थी और अगली बार कैसे अलग कर सकते हैं। मिलकर समाधान चुनें। AAP की सलाह है कि बच्चों को अपनी बात कहने दें, फिर बात सुनकर मिलकर समाधान निकालें। इससे बच्चे को लगता है कि उसका सहयोग है और वो सक्रिय रूप से सीखता है। </li>
+   </ul>
+
+<p>बातचीत  के उदाहरण</p>
+<ul style="list-style-type: square;">
+<li><strong> (उदाहरण 1 – २-वर्ष): </strong><br>
+<p>बच्चा (रोते हुए): “मुझे कैंडी चाहिए!” <br>
+<p>माँ: “मैं समझती हूँ तुम कैंडी चाहते हो। लेकिन अभी खाने के बाद ही मिलेगी। क्या तुम दूध पीना पसंद करोगे या फल का जूस?”<br>
+<p>यहां माँ छोटे विकल्प दे रही है और बच्चे को शांत करने के लिए उसकी पसंद पूछ रही है।<br></li>
+
+<li> <strong>(उदाहरण 2 – ६-वर्ष):  </strong>
+<p>बच्चा (चिल्लाकर): “नहीं, मैं होमवर्क नहीं करूंगा!”<br>
+<p>पिता: “लगता है तुम थक गए हो। थोड़ी देर आराम कर लो, फिर हम मिलकर होमवर्क पूरा करते हैं। अभी अपना पसंदीदा खिलौना लेकर खेलो।”<br>
+<p>पिता बच्चे की भावनाएँ समझते हुए आराम और बाद में सहयोग का विकल्प दे रहा है।</ul>
+
+<li> <strong>(उदाहरण 3 – १४-वर्ष):</strong>
+<p>बच्चा: “मैं पार्टी में देर तक रहना चाहता हूं, माँ!”<br>
+<p>माँ: “तुम दोस्तों के साथ समय बिताना चाहते हो, मुझे पता है। अगली बार तब तक रहना ठीक है जब तक तुम रात ९ बजे फोन करके कह दोगे, समझे?”<br>
+<p>माँ ने नियम पहले से तय किए हैं (रात ९ बजे तक फोन) और किशोर को थोड़ा नियंत्रण भी दिया (अपने दोस्तों के साथ रहना)।</ul>
+</ul>
+</section>
+        
+          
+            <!-- Card 3: What to do vs What not to do -->
+            <section class="content-card">
+                <h2>क्या करें और क्या करने से बचें?</h2>
+<br>
+<br>
+                <p>पेरेंटिंग के इस सफर में यह जानना बहुत ज़रूरी है कि हमारे किस व्यवहार का बच्चे पर क्या असर पड़ता है:</p>
+                
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>क्या करें (सही तरीका)</th>
+                            <th>क्या न करें (गलत तरीका)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>शांत रहें और प्यार दिखाएँ। बच्चे के शांत होने पर उसे गले लगाएं।</td>
+                            <td>गुस्से में झगड़ें नहीं, चीखें नहीं, थप्पड़ या शाबाशी डांट-फटकार न दें। खासकर 3 वर्ष से छोटे बच्चे पर कभी शारीरिक दंड न आज़माएं। गुस्से में बच्चे पर चिल्लाना या मारना बात बिगाड़ता है।</td>
+                        </tr>
+                        <tr>
+                            <td>ज़िद के पीछे की सही वजह (भूख, नींद) समझें।</td>
+                            <td>दूसरों के सामने बच्चे को डांटना या शर्मिंदा करना।</td>
+                        </tr>
+                        <tr>
+                            <td>स्पष्ट नियम और दिनचर्या बनाएं, और दृढ़ता से पालन करें। नियमों में निरंतरता (Consistency) रखें।</td>
+                            <td>तंग आकर उसकी हर गलत ज़िद को मान लेना।</td>
+                        </tr>
+			<tr>
+                            <td>बच्चे के अच्छे काम की तारीफ़ करें।</td>
+                            <td>बेकार की धमकियाँ या अनुचित नियम न बनाएं (जैसे “अगर तू नहीं रुकी, मैं तुझे छोड़कर चला जाऊँगा!”)।</td>
+                        </tr>
+			<tr>
+                            <td>बड़े प्यार से सीमाएँ तय करें और सहज तरीके से समझाएँ।</td>
+                            <td>अतिरिक् सज़ा न दें (जैसे महीनों तक किसी वस्तु पर रोक)।</td>
+                        </tr>
+			<tr>
+                            <td>बच्चे की भावनाओं को स्वीकारें और उसकी आंख में देखकर बात करें।</td>
+                            <td>तुलना या अपमान न करें (“तू जैसा भी है…” जैसी बातें चोट पहुंचाती हैं)।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+<section class="section container">
+    <h2 class="section-title">जिद्दीपन क्यों होता है?</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>स्वतंत्रता की चाह</h3>
+            <p>
+                बच्चे अपने निर्णय स्वयं लेना चाहते हैं और अपनी पहचान बनाना चाहते हैं।
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>ध्यान आकर्षित करना</h3>
+            <p>
+                कभी-कभी बच्चे केवल माता-पिता का ध्यान पाने के लिए जिद करते हैं।
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>भावनाएँ व्यक्त न कर पाना</h3>
+            <p>
+                जब बच्चे अपनी भावनाएँ शब्दों में नहीं बता पाते, तो जिद कर सकते हैं।
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section container">
+    <div class="quote">
+        <h2>"प्यार, धैर्य और संवाद हर जिद का सबसे अच्छा समाधान है।"</h2>
+    </div>
+</section>
+
+<section class="section container">
+    <h2 class="section-title">क्या नहीं करना चाहिए?</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>चिल्लाना नहीं</h3>
+            <p>गुस्से में प्रतिक्रिया देने से स्थिति और बिगड़ सकती है।</p>
+        </div>
+
+        <div class="card">
+            <h3>तुलना नहीं</h3>
+            <p>दूसरे बच्चों से तुलना करने से आत्मविश्वास कम होता है।</p>
+        </div>
+
+        <div class="card">
+            <h3>हर जिद पूरी न करें</h3>
+            <p>बच्चों को सीमाओं और जिम्मेदारियों की समझ देना जरूरी है।</p>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-8 border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-1">
+        <h2 class="text-4xl font-black">Frequently Asked Questions (FAQ)</h2>
+</div>
+      </div>
+  </section>
+
+<section>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">
+        प्र. १: क्या बच्चे का जिद्दीपन सामान्य है?
+      </div>
+      <div class="faq-answer">
+        <p>
+          हाँ, लगभग सभी बच्चों में कुछ समय के लिए जिद्दीपन देखे जाते हैं, विशेषकर 1½–5 वर्ष में tantrum होना विकास का हिस्सा है। इस उम्र में बच्चे अपनी भावनाएं व्यक्त करना सीख रहे होते हैं, अतः कभी-कभी बहुत गुस्सा करते हैं।
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        प्र. २: tantrum कब असामान्य है?
+      </div>
+      <div class="faq-answer">
+        <p>
+          यदि tantrum रोज़ाना आवर्ती हो, 10 मिनट से अधिक लंबा हो, या बच्चे और दूसरों के लिए खतरनाक हो तो विशेषज्ञ से सलाह लें। साथ ही यदि व्यवहार अचानक बिगड़ गया हो (जैसे ध्यान से अलग-थलग हो रहा हो), तो मनोवैज्ञानिक या बाल चिकित्सक से संपर्क करें।
+        </p>
+      </div>
+    </div>
+
+   <div class="faq-item">
+      <div class="faq-question">
+        प्र. ३: क्या tantrum आते ही चुप रहना चाहिए?
+      </div>
+      <div class="faq-answer">
+        <p>
+          बच्चे को खतरे से दूर रखकर हल्का ध्यान हटाना, विकल्प देना या शांत करना उपयोगी होता है। पर बच्चे पर क्रोध दिखाने या बाहर से चिल्लाने से बचें। यदि tantrum शांत हो जाए तो दुलार कर भावनाएं पूछें।
+        </p>
+      </div>
+    </div>
+
+ <div class="faq-item">
+      <div class="faq-question">
+        प्र. ४: टाइम-आउट कब लेना चाहिए?
+      </div>
+      <div class="faq-answer">
+        <p>
+          3 वर्ष से ऊपर के लिए टाइम-आउट का उपयोग तब करें जब बच्चे ने नियम तोड़े हों। यह छोटा और शांत होना चाहिए (उम्र *1 मिनट)। छोटी उम्र में “time-in” (बच्चे के साथ बैठकर सहारा) बेहतर होता है।
+        </p>
+      </div>
+    </div>
+
+<div class="faq-item">
+      <div class="faq-question">
+       प्र. ५: लड़ने से बेहतर विकल्प क्या है?
+      </div>
+      <div class="faq-answer">
+        <p>
+          हमेशा सकारात्मक प्रोत्साहन दें और समस्या-समाधान पर फोकस करें। उदाहरण के लिए, अच्छे व्यवहार पर स्टार चार्ट बनाएं या समय-पूर्व चेतावनी दें। चूंकि प्यार और समझ से बच्चों पर असर बढ़ता है, कठोर दंड से बचना चाहिए।
+        </p>
+      </div>
+    </div>
+
+    </div>
+</section>
+
+
+<section class="bg-white py-8 border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-left mb-1">
+        <h2 class="text-4xl font-black">विश्वसनीय और प्राथमिक स्रोत</h2>
+<br>
+	<p class="font-black">नीचे कुछ विश्वसनीय और प्राथमिक स्रोत दिए गए हैं जिनसे और जानकारी मिल सकती है (अंग्रेज़ी में):</p>
+<br>
+<ul style="list-style-type: square;">
+<li style="line-height: 2.8;"><strong>WHO Parenting Guidelines:</strong> WHO ने 0–17 वर्ष के लिए सकारात्मक पालन-पोषण के दिशा-निर्देश जारी किए हैं।</li>
+<li style="line-height: 2.8;"><strong>UNICEF India – Tantrum Tips:</strong> UNICEF इंडिया की “Handling temper tantrums” गाइड में उम्र अनुसार सलाह दी गई है।</li>
+<li style="line-height: 2.8;"><strong>American Academy of Pediatrics (AAP): </strong> AAP की HealthyChildren वेबसाइट पर सकारात्मक अनुशासन के दस उपाय दिए गए हैं।</li>
+<li style="line-height: 2.8;"><strong>Canadian Paediatric Society (Caring for Kids): </strong> कनाडाई समाज ने “Positive discipline for young children” पर अभिभावकों के लिए विस्तृत सुझाव दिए हैं।</li>
+<li style="line-height: 2.8;"><strong>Nemours KidsHealth: </strong> बाल स्वास्थ्य केंद्र की यह साइट विभिन्न उम्रों की अनुशासन तकनीकों पर अंग्रेज़ी में जानकारी देती है।</li>
+<li style="line-height: 2.8;"><strong>POSITIVE Discipline Association: </strong> (वीबसाइट) बाल व्यवहार पर रिसर्च आधारित सकारात्मक अनुशासन तकनीकें प्रस्तुत करती है।</li>
+<br><p style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; text-align: center; padding: 15px; border-radius: 8px;">
+    इन स्रोतों पर उपलब्ध वैज्ञानिक और चिकित्सीय सलाहों को देखकर आप अपने और अपने बच्चे के लिए सबसे उपयुक्त रास्ता चुन सकते हैं।
+</p>
+
+</div>
+      </div>
+</div>
+  </section>
+
+</body>
+</html>

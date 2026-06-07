@@ -1,0 +1,341 @@
+<style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #e01f26;
+            --dark-red: #b31419;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f4f4f4;
+            --text-main: #333333;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER & LOGO AREA */
+        header {
+            background-color: #ffffff;
+            border-bottom: 4px solid var(--primary-red);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span {
+            background-color: var(--primary-red);
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .live-tv-btn {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; background-color: var(--dark-red); }
+            100% { opacity: 1; }
+        }
+
+        /* NAVIGATION MENU */
+        nav {
+            background-color: var(--dark-bg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .nav-container a {
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .nav-container a:hover, .nav-container a.active {
+            background-color: var(--primary-red);
+        }
+
+        /* BREAKING NEWS TICKER */
+        .ticker-container {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            max-width: 1200px;
+            margin: 10px auto 0 auto;
+            height: 40px;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .ticker-title {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .ticker-text {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .ticker-text marquee {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-red);
+            padding-top: 4px;
+        }
+
+        /* MAIN NEWS GRID STRUCTURE */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* HERO / BIG NEWS STORY */
+        .hero-story {
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: #ccc linear-gradient(45deg, #333, #777); /* Fallback image vector placeholder */
+            position: relative;
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero-content {
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            color: #111;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero-title:hover {
+            color: var(--primary-red);
+        }
+
+        /* MULTI-COLUMN NEWS SUB-GRID */
+        .sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .sub-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .news-card {
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background: #ddd linear-gradient(135deg, #bbb, #eee);
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-category {
+            color: var(--primary-red);
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .card-title:hover {
+            color: var(--primary-red);
+        }
+
+        /* SIDEBAR (TRENDING & SIDE CONTENT) */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--dark-bg);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-red);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ccc;
+            line-height: 1;
+        }
+
+        .trending-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .trending-text:hover {
+            color: var(--primary-red);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-bg);
+            color: #bbb;
+            padding: 40px 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        wea {
+            Primary: #0066FF
+Secondary: #00C6FF
+Dark: #0F172A
+Light: #F8FAFC
+Success: #22C55E
+Warning: #F59E0B
+Danger: #EF4444 }
+    </style>

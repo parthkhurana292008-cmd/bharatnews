@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+<script src="navbar.js"></script>
+<link rel="stylesheet" href="style.css">
+    <title>Live Gold & Silver Rates India | BullionPulse</title>
+    <!-- Tailwind CSS for rapid modern styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons for clean UI iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen">
+
+
+    <!-- MAIN NEWS HEADER -->
+    <div id="navbar"></div>
+    <script>
+	document.getElementById("navbar").innerHTML = "<h1 style='background:red;color:white'>Navbar Loaded</h1>";
+    </script>
+    <script src="./navbar.js"></script>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Welcome & Timestamp -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">आज सोने चाँदी के भाव</h1>
+                <p class="text-sm text-slate-400 mt-1">मेट्रो शहरों में सोने की कीमतें</p>
+            </div>
+            <div class="text-sm text-slate-400 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 self-start sm:self-center flex items-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-slate-500"></i>
+                Last Update: <span id="last-updated" class="font-mono text-slate-200 font-medium">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Live Rate Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- 24K Gold Card -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-amber-500/30 transition-all duration-300 shadow-xl">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-all"></div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <p class="text-sm font-semibold tracking-wider text-amber-500 uppercase">Gold 24 Karat</p>
+                            <span class="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-1.5 py-0.2 rounded font-medium">99.9% Pure</span>
+                        </div>
+                        <h2 class="text-3xl font-extrabold tracking-tight mt-3 font-mono text-slate-100" id="gold-24k">₹<span id="gold_rate"></span>
+			<span class="text-xs text-slate-400 font-normal">/ 1 gm</span></h2>
+                        <p class="text-sm font-mono text-slate-400 mt-1" id="gold-24k-10g">₹<span id="gold_rate10"></span>
+			<span class="text-xs text-slate-500">/ 10 gm</span></p>
+                    </div>
+                    <div class="bg-amber-500/10 p-3 rounded-xl border border-amber-500/20 text-amber-400">
+                        <i data-lucide="coins" class="w-6 h-6"></i>
+                    </div>
+                </div>
+          
+	    <div class="mt-6 flex items-center space-x-2 text-sm">
+    		<span id="gold_diff"
+          	class="flex items-center font-medium px-2 py-1 rounded-md text-xs">
+        	<i id="gold_diff_icon" class="w-3.5 h-3.5 mr-1"></i>
+        	<span id="gold_diff_value"></span>
+		</span>
+    		<span class="text-slate-500 text-xs">
+        	Since yesterday
+    		</span>
+	   </div>
+        </div>
+
+            <!-- 22K Gold Card -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-amber-600/30 transition-all duration-300 shadow-xl">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-amber-600/5 rounded-full blur-3xl group-hover:bg-amber-600/10 transition-all"></div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <p class="text-sm font-semibold tracking-wider text-amber-600 uppercase">Gold 22 Karat</p>
+                            <span class="text-[10px] bg-amber-600/10 text-amber-500 border border-amber-600/20 px-1.5 py-0.2 rounded font-medium">Jewellery Standard</span>
+                        </div>
+                       <h2 class="text-3xl font-extrabold tracking-tight mt-3 font-mono text-slate-100" id="gold-22k">₹<span id="gold_rate22"></span>
+			<span class="text-xs text-slate-400 font-normal">/ 1 gm</span></h2>
+                        <p class="text-sm font-mono text-slate-400 mt-1" id="gold-22k-10g">₹<span id="gold_rate220"></span>
+			<span class="text-xs text-slate-500">/ 10 gm</span></p>
+                    </div>
+                    <div class="bg-amber-600/10 p-3 rounded-xl border border-amber-600/20 text-amber-500">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                </div>
+               
+		<div class="mt-6 flex items-center space-x-2 text-sm">
+    			<span id="gold_diff22"
+          		class="flex items-center font-medium px-2 py-1 rounded-md text-xs">
+        		<i id="gold_diff_icon22" data-lucide="trending-up"
+           		class="w-3.5 h-3.5 mr-1"></i>
+        		<span id="gold_diff_value22"></span>
+			</span>
+        		<span class="text-slate-500 text-xs">Since yesterday</span>
+		</div>
+            </div>
+
+
+            <!-- Silver Card -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-slate-500/40 transition-all duration-300 shadow-xl">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-slate-400/5 rounded-full blur-3xl group-hover:bg-slate-400/10 transition-all"></div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <p class="text-sm font-semibold tracking-wider text-slate-400 uppercase">Silver (XAG)</p>
+                            <span class="text-[10px] bg-slate-500/10 text-slate-300 border border-slate-500/20 px-1.5 py-0.2 rounded font-medium">99.9% Pure</span>
+                        </div>
+                       <h2 class="text-3xl font-extrabold tracking-tight mt-3 font-mono text-slate-100" id="Silver">₹<span id="silver_rate"></span>
+			<span class="text-xs text-slate-400 font-normal">/ 1 gm</span></h2>
+                        <p class="text-sm font-mono text-slate-400 mt-1" id="Silver-1Kg">₹<span id="silver_rate10"></span>
+			<span class="text-xs text-slate-500">/ 1 Kg</span></p>
+                    </div>
+                    <div class="bg-amber-600/10 p-3 rounded-xl border border-amber-600/20 text-amber-500">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                </div>
+               
+		<div class="mt-6 flex items-center space-x-2 text-sm">
+    			<span id="silver_diff"
+          		class="flex items-center font-medium px-2 py-1 rounded-md text-xs">
+        		<i id="silver_diff_icon" data-lucide="trending-up"
+           		class="w-3.5 h-3.5 mr-1"></i>
+        		<span id="silver_diff_value"></span>
+			</span>
+        		<span class="text-slate-500 text-xs">Since yesterday</span>
+		</div>
+            </div>
+
+
+
+            
+                        
+        </div>
+
+        <!-- Dynamic Calculator & Market Analysis Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Quick Estimate Calculator Component -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:col-span-1 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex items-center space-x-2 pb-4 border-b border-slate-800/60">
+                        <i data-lucide="calculator" class="w-5 h-5 text-amber-500"></i>
+                        <h3 class="font-bold text-lg">Indian Tax & Bill Estimator</h3>
+                    </div>
+                    
+                    <div class="mt-4 space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Select Metal Type</label>
+                            <select id="calc-metal" onchange="calculateBill()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-amber-500/50 transition-colors">
+                                <option value="gold_rate24">Gold 24K (Per Gram)</option>
+                                <option value="6641" selected>Gold 22K (Per Gram)</option>
+                                <option value="89.2">Silver (Per Gram)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Enter Weight (Grams)</label>
+                            <input type="number" id="calc-weight" value="10" min="1" oninput="calculateBill()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm font-mono text-slate-100 focus:outline-none focus:border-amber-500/50 transition-colors">
+                        </div>
+
+                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60 space-y-2 text-xs font-mono text-slate-400">
+                            <div class="flex justify-between">
+                                <span>Basic Value:</span>
+                                <span id="bill-base">₹66,410.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Est. Making Charges (5%):</span>
+                                <span id="bill-making">₹3,320.50</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Govt GST (3%):</span>
+                                <span id="bill-gst">₹2,091.92</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-800/60 flex justify-between items-center">
+                    <span class="text-sm font-bold text-slate-300">Estimated Total:</span>
+                    <span class="text-xl font-black font-mono text-amber-400" id="bill-total">₹71,822.42</span>
+                </div>
+            </div>
+
+            <!-- Major Indian Cities Rates Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden lg:col-span-2 shadow-xl">
+                <div class="px-6 py-5 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-slate-400"></i>
+                        <h3 class="font-bold text-lg">City-Wise Retail Spot Prices (10g)</h3>
+                    </div>
+                    <span class="text-[11px] text-amber-500 font-semibold bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-md">Live City Updates</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-800 bg-slate-950/50 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                            <th class="px-6 py-4">City</th>
+                            <th class="px-6 py-4">24K Gold (10g)</th>
+                            <th class="px-6 py-4">22K Gold (10g)</th>
+                            <th class="px-6 py-4">Silver (1kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60 text-sm font-mono text-slate-300">
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 text-slate-200 font-sans font-medium">Mumbai</td>
+                            <td class="px-6 py-4 font-semibold">₹72,450</td>
+                            <td class="px-6 py-4">₹66,410</td>
+                            <td class="px-6 py-4 text-slate-400">₹89,200</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 text-slate-200 font-sans font-medium">Delhi NCR</td>
+                            <td class="px-6 py-4 font-semibold">₹72,600</td>
+                            <td class="px-6 py-4">₹66,560</td>
+                            <td class="px-6 py-4 text-slate-400">₹89,350</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 text-slate-200 font-sans font-medium">Chennai</td>
+                            <td class="px-6 py-4 font-semibold">₹72,950</td>
+                            <td class="px-6 py-4">₹66,850</td>
+                            <td class="px-6 py-4 text-slate-400">₹89,800</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4 text-slate-200 font-sans font-medium">Kolkata</td>
+                            <td class="px-6 py-4 font-semibold">₹72,450</td>
+                            <td class="px-6 py-4">₹66,410</td>
+                            <td class="px-6 py-4 text-slate-400">₹89,200</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script Section for dynamic elements and calculator equations -->
+    <script>
+        // Initialize interactive Lucide vector icons
+        lucide.createIcons();
+
+        // Standard Indian Currency Localized String Formatter (Lakhs / Crores syntax)
+        function formatINR(number) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 2
+            }).format(number);
+        }
+
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('last-updated').innerText = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' IST';
+        }
+
+        // Live Math Formulation for the Tax Calculator
+        function calculateBill() {
+    let metal = document.getElementById("calc-metal").value;
+    let weight = parseFloat(document.getElementById("calc-weight").value);
+
+    let rate;
+
+    if (metal === "gold_rate24") {
+        rate = gold_rate24;
+    } else {
+        rate = parseFloat(metal);
+    }
+
+    let basic = rate * weight;
+    let making = basic * 0.05;
+    let gst = (basic + making) * 0.03;
+    let total = basic + making + gst;
+
+    document.getElementById("bill-base").innerText =
+        "₹" + basic.toLocaleString('en-IN', {minimumFractionDigits: 2});
+
+    document.getElementById("bill-making").innerText =
+        "₹" + making.toLocaleString('en-IN', {minimumFractionDigits: 2});
+
+    document.getElementById("bill-gst").innerText =
+        "₹" + gst.toLocaleString('en-IN', {minimumFractionDigits: 2});
+
+    document.getElementById("bill-total").innerText =
+        "₹" + total.toLocaleString('en-IN', {minimumFractionDigits: 2});
+}
+
+calculateBill();
+        // Dummy Live Data Refresh Handler
+        async function fetchRates() {
+            updateTimestamp();
+            calculateBill();
+            
+            // Note: To map actual real-time MCX or IBJA feeds to this view, 
+            // connect an API like goldapi.io or metalpriceapi.com inside this method thread.
+        }
+
+        // Bootstrapping execution loops on document initiation
+        fetchRates();
+        // Dynamic system clock synchronization sweep every 60 seconds
+        setInterval(fetchRates, 60000);
+    </script>
+
+
+
+<script>
+let gold_rate = 15090;
+let pgold_rate24 = 14667;
+let gold_rate10 = gold_rate * 10;
+let gold_diff = gold_rate - pgold_rate24;
+
+const diffBox = document.getElementById("gold_diff");
+const diffValue = document.getElementById("gold_diff_value");
+const diffIcon = document.getElementById("gold_diff_icon");
+
+if (gold_diff >= 0) {
+    diffValue.innerText = `₹${gold_diff} (↑)`;
+
+    diffBox.classList.add(
+        "text-emerald-400",
+        "bg-emerald-500/10"
+    );
+
+    diffIcon.setAttribute("data-lucide", "trending-up");
+} else {
+    diffValue.innerText = `₹${Math.abs(gold_diff)} (↓)`;
+
+    diffBox.classList.add(
+        "text-red-400",
+        "bg-red-500/10"
+    );
+
+    diffIcon.setAttribute("data-lucide", "trending-down");
+}
+
+document.getElementById("gold_rate").innerText = gold_rate;
+document.getElementById("gold_rate10").innerText = gold_rate10;
+
+
+
+let gold_rate22 = 14335;
+let pgold_rate22 = 14667;
+let gold_rate220 = gold_rate22 * 10;
+let gold_diff22 = gold_rate22 - pgold_rate22;
+
+const diffBox22 = document.getElementById("gold_diff22");
+const diffValue22 = document.getElementById("gold_diff_value22");
+const diffIcon22 = document.getElementById("gold_diff_icon22");
+
+if (gold_diff22 >= 0) {
+    diffValue22.innerText = `₹${gold_diff22} (↑)`;
+
+    diffBox22.classList.add(
+        "text-emerald-400",
+        "bg-emerald-500/10"
+    );
+
+    diffIcon22.setAttribute("data-lucide", "trending-up");
+} else {
+    diffValue22.innerText = `₹${Math.abs(gold_diff22)} (↓)`;
+
+    diffBox22.classList.add(
+        "text-red-400",
+        "bg-red-500/10"
+    );
+
+    diffIcon22.setAttribute("data-lucide", "trending-down");
+}
+   
+document.getElementById("gold_rate22").innerText = gold_rate22;
+document.getElementById("gold_rate220").innerText = gold_rate220;
+
+let silver_rate = 2790;
+let psilver_rate = 2800;
+let silver_rate10 = silver_rate * 1000;
+let silver_diff = silver_rate - psilver_rate;
+
+const diffBoxs = document.getElementById("silver_diff");
+const diffValues = document.getElementById("silver_diff_value");
+const diffIcons = document.getElementById("silver_diff_icon");
+
+if (silver_diff >= 0) {
+    diffValues.innerText = `₹${silver_diff} (↑)`;
+
+    diffBoxs.classList.add(
+        "text-emerald-400",
+        "bg-emerald-500/10"
+    );
+
+    diffIcons.setAttribute("data-lucide", "trending-up");
+} else {
+    diffValues.innerText = `₹${Math.abs(silver_diff)} (↓)`;
+
+    diffBoxs.classList.add(
+        "text-red-400",
+        "bg-red-500/10"
+    );
+
+    diffIcons.setAttribute("data-lucide", "trending-down");
+}
+   
+document.getElementById("silver_rate").innerText = silver_rate;
+document.getElementById("silver_rate10").innerText = silver_rate10;
+
+
+
+
+lucide.createIcons();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
+

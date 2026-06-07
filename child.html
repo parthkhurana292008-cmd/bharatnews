@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बच्चों का कोना - पैरेंटिंग, शिक्षा और स्वास्थ्य की संपूर्ण गाइड</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+   
+    <style>
+        /* Global & Theme Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #10ac84;
+            --accent: #00d2d3;
+            --warning: #ff9f43;
+            --dark: #2c3e50;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Top Notification Bar */
+        .top-bar {
+            background: linear-gradient(to right, var(--primary), var(--warning));
+            color: white;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+.card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1350&q=80') center/cover;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #57606f;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        /* Article Cards Styling */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+            width: 100%; /* Fixed fixed-width issue */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .badge {
+            align-self: flex-start;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .badge.parenting { background-color: var(--primary); }
+        .badge.edu { background-color: var(--secondary); }
+        .badge.health { background-color: var(--accent); }
+        .badge.lifestyle { background-color: var(--warning); }
+
+        .card-body h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .card-body p {
+            font-size: 14px;
+            color: #636e72;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .read-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sidebar Widgets */
+        
+
+        .widget {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .widget h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .quick-links {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .quick-links li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+       
+
+        /* Responsive Layout */
+        @media (max-width: 992px) {
+            .main-layout { grid-template-columns: 1fr; }
+            aside { margin-top: 20px; }
+        }
+
+        .parenting-tip {
+            background: linear-gradient(135deg, #fffaf0, #fff1e6);
+            border-left: 5px solid #ff6b6b;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            animation: glowBlink 2s infinite;
+            margin-top: 20px;
+max-width: 500px;   /* width control */
+    margin: 20px auto;  /* center align */
+        }
+.main-layout:last-of-type{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.main-layout:last-of-type .parenting-tip{
+    max-width:450px;
+    flex:1;
+}
+        .parenting-tip p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .parenting-tip b {
+            background: yellow;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        @keyframes glowBlink {
+            0% { box-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(255, 107, 107, 0.7); }
+            100% { box-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+        }
+aside {
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+.parenting-tip h4{
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">🎯 पेरेंटिंग और बाल विकास के लिए भारत का नंबर #1 सूचनात्मक मंच</div>
+
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+
+    <section class="hero">
+        <h1>अपने बच्चे की पूरी क्षमता को उड़ान दें 🚀</h1>
+        <p>भारत का आधुनिक Parenting, Learning & Child Wellness Platform</p>
+    </section>
+
+    <div class="main-layout">
+        
+        <main>
+            <div class="articles-grid">
+                
+                <a href="c1.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card">
+        <div class="card-img" style="background-image:url('c1.png');"></div>
+        <div class="card-body">
+            <span class="badge lifestyle">डिजिटल लाइफ</span>
+            <h3>📱 बच्चों के लिए सुरक्षित स्क्रीन टाइम: उम्र के अनुसार सही गाइड</h3>
+            <p>जानिए अलग-अलग उम्र के बच्चों के लिए मोबाइल और टीवी देखने की सही समय सीमा क्या है और स्क्रीन एडिक्शन से कैसे बचाएं।</p>
+            <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+        </div>
+
+    </div>
+</a>
+
+<a href="c2.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card">
+                    <div class="card-img" style="background-image:url('c2.png');"></div>
+                    <div class="card-body">
+                        <span class="badge parenting">पैरेंटिंग</span>
+                        <h3>❤️ बिना डांट के बच्चों का व्यवहार सुधारने के 5 प्रभावी तरीके</h3>
+                        <p>बच्चा बात-बात पर रोता या जिद करता है? अपनाएं ये 5 मनोवैज्ञानिक तरीके जो बच्चों का व्यवहार बिना गुस्सा किए सुधार देंगे।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="c3.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('c3.png');"></div>
+                    <div class="card-body">
+                        <span class="badge lifestyle">घर और परिवेश</span>
+                        <h3>🏡 ऐसा कमरा जो बच्चों की पढ़ाई और रचनात्मकता दोनों बढ़ाए</h3>
+                        <p>पढ़ाई में एकाग्रता और बेहतर मानसिक विकास के लिए बच्चों के कमरे का रंग, लाइट और वास्तु सेटिंग कैसी हो, जानिए यहाँ।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="c4.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('c4.png');"></div>
+                    <div class="card-body">
+                        <span class="badge edu">बाल शिक्षा</span>
+                        <h3>🎲 Fun Learning: बच्चों को खेल-खेल में Maths सिखाने के आसान तरीके</h3>
+                        <p>गणित के डर को कहें बाय-बाय! इन मजेदार घरेलू खेलों और एक्टिविटीज की मदद से बच्चों को आसानी से जोड़-घटाना सिखाएं।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+                </div>
+</a>
+<a href="c5.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('c5.png');"></div>
+                    <div class="card-body">
+                        <span class="badge parenting">आदतें</span>
+                        <h3>👶 अंगूठा चूसने की आदत छुड़ाने के सुरक्षित और असरदार उपाय</h3>
+                        <p>बढ़ती उम्र में भी बच्चों का अंगूठा चूसना दांतों के लिए नुकसानदेह हो सकता है। जानिए इसे छुड़ाने के सुरक्षित और आसान घरेलू उपाय।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+<a href="c6.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+
+                <div class="card">
+                    <div class="card-img" style="background-image:url('c6.png');"></div>
+                    <div class="card-body">
+                        <span class="badge health">स्वास्थ्य व योग</span>
+                        <h3>🧠 Memory, Focus और IQ बढ़ाने की वैज्ञानिक रणनीतियाँ</h3>
+                        <p>बच्चों की तार्किक सोच (Logical Thinking),मेमोरी और फोकस पावर बढ़ाने के लिए कारगर प्राकृतिक तरीके योगासन की स्टेप-बाय-स्टेप गाइड।</p>
+                        <span class="read-btn">पूरा लेख पढ़ें &rarr;</span>
+                    </div>
+
+                </div>
+</a>
+            </div>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h4><b>🎯 दिमागी और रचनात्मक कोने</b></h4>
+                
+                <p>🚀 <b>बेहतर परवरिश का असली मतलब:</b> परवरिश का मतलब केवल नियम बनाना नहीं है, बल्कि बच्चे को सही दिशा देना है:</p>
+                <ul class="quick-links">
+                    <li>&#10004; प्यार और सम्मान के साथ बातचीत</li>
+                    <li>&#10004; गलतियों को सीखने का मौका बनाना</li>
+                    <li>&#10004; आत्मनिर्भर बनाना, लेकिन सपोर्ट के साथ</li>
+                </ul>   
+                
+                <p>🎨 <b>क्रिएटिव विकास :</b> क्रिएटीविटी बच्चों को भीड़ से अलग बनाती है।</p>
+                <ul class="quick-links">
+                    <li>&#10004; ड्राइंग और पेंटिंग 🎨</li>
+                    <li>&#10004; कहानी बनाना 📖</li>
+                    <li>&#10004; DIY क्राफ्ट 🧸</li>
+                    <li>&#10004; संगीत और डांस 🎵</li>
+                </ul>   
+                
+                <p>🧠 <b>दिमागी विकास (Mental Growth):</b> बच्चों का दिमाग जितना active रहेगा, उतना ही उनका future मजबूत होगा।</p>
+                <ul class="quick-links">
+                    <li>&#10004; पहेलियाँ और brain games</li>
+                    <li>&#10004; सवाल पूछने की आदत</li>
+                    <li>&#10004; पढ़ाई को समझकर सीखना</li>
+                    <li>&#10004; नई चीजें explore करना</li>
+                </ul>   
+                
+                <p>💬 <b>Emotional Strong बनाना:</b> एक मजबूत बच्चा वही है जो:</p>
+                <ul class="quick-links">
+                    <li>&#10004; अपनी feelings समझता है</li>
+                    <li>&#10004; दूसरों को respect देता है</li>
+                    <li>&#10004; हार से डरता नहीं</li>
+                </ul>   
+                
+                <p>📱 <b>डिजिटल दुनिया का सही उपयोग:</b> मोबाइल और इंटरनेट को दुश्मन नहीं, सही तरीके से इस्तेमाल करने वाला tool बनाएं:</p>
+                <ul class="quick-links">
+                    <li>&#10004; educational videos चुनें</li>
+                    <li>&#10004; screen time limit रखें</li>
+                    <li>&#10004; learning apps का उपयोग करें</li>
+                </ul>   
+                
+                <p>💬 <b>संवाद (Communication) है सबसे जरूरी:</b> बच्चों से सिर्फ बात न करें, बल्कि उनकी बातों को ध्यान से सुनें। जब बच्चे को यह अहसास होता है कि उसकी भावनाओं की कद्र की जा रही है, तो उसका आत्मविश्वास बढ़ता है।</p>
+                <ul class="quick-links">
+                    <li>&#10004; खुले सवाल पूछें: "आज का दिन कैसा था?" के बजाय पूछें, "आज स्कूल में सबसे मज़ेदार बात क्या हुई?"</li>
+                     <li>&#10004;   गलती होने पर चिल्लाने के बजाय शांत रहकर उन्हें सही और गलत का अंतर समझाएं।</li>	
+                </ul>
+            </div>
+       </aside>
+    </div>
+
+    <div class="main-layout">
+        <div class="widget parenting-tip">
+    <h4>🌟</h4>
+	<h4> इस सप्ताह की Parenting Wisdom</h4>
+    <p >"बच्चों को सफल बनाने से पहले उन्हें आत्मविश्वासी बनाइए।"  </p> 
+<p><span style="font-weight:700;
+        text-decoration:underline;
+        text-decoration-color:#ff6b6b;
+    ">
+        सफलता स्वयं उनका पीछा करेगी।
+    </span>
+</p>
+</div>
+
+        <div class="widget parenting-tip">
+            <h4>💡 आखिरी बात</h4>
+            <p style="font-weight:600;">याद रखें, कोई भी माता-पिता "परफेक्ट" नहीं होता। पैरेंटिंग कोई रेस नहीं है, बल्कि एक सफर है। गलतियाँ आपसे भी होंगी और बच्चों से भी। ज़रूरी यह है कि घर का माहौल प्यार, सुरक्षा और भरोसे से भरा हो।</p>
+        </div>
+    </div>
+<script>
+function suggestRoom() {
+    const ideas = [
+        "🎨 Use pastel blue walls + cartoon wallpaper for calming effect",
+        "🧸 Add toy storage boxes under bed to save space",
+        "🌙 Use warm LED lights for a cozy night mood",
+        "📚 Keep study corner near window for natural light",
+        "🪑 Use rounded furniture for child safety"
+    ];
+
+    document.getElementById("aiText").innerText =
+        ideas[Math.floor(Math.random() * ideas.length)];
+}
+</script>
+</body>
+</html>

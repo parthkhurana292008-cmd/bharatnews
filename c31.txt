@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat News - Today's Latest News (आज की ताजा खबर)</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f9ff;
+        color: #333;
+        transition: 0.3s ease;
+    }
+
+    /* DARK MODE */
+    body.dark {
+        background: #121212;
+        color: #f1f1f1;
+    }
+
+    header {
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        color: white;
+        text-align: center;
+        padding: 20px 20px;
+        position: relative;
+    }
+
+    .toggle-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    body.dark .toggle-btn {
+        background: #333;
+        color: white;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 30px 0;
+    }
+
+    .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    body.dark .section {
+        background: #1e1e1e;
+        box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+    }
+
+    .section h2 {
+        color: #2193b0;
+    }
+
+    body.dark .section h2 {
+        color: #6dd5ed;
+    }
+
+    ul {
+        line-height: 1.8;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #2193b0;
+        color: white;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 12px;
+        margin-top: 15px;
+    }
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+body.dark .card {
+    background: #1e1e1e;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #ff9900;
+    color: black;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background: #e68a00;
+}
+/* ===== ANIMATED ROOM ===== */
+.room {
+    position: relative;
+    height: 300px;
+    background: linear-gradient(to bottom, #b3e5fc, #e1f5fe);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* SUN */
+.sun {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    animation: spin 8s linear infinite;
+}
+
+/* CLOUDS */
+.cloud {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+.c1 {
+    top: 30px;
+    animation: moveCloud 12s linear infinite;
+}
+
+.c2 {
+    top: 70px;
+    animation: moveCloud 18s linear infinite;
+}
+
+/* BED */
+.bed {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    font-size: 40px;
+    animation: bounce 2s infinite;
+}
+
+/* TABLE */
+.table {
+    position: absolute;
+    bottom: 25px;
+    right: 60px;
+    font-size: 35px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* TOY */
+.toy {
+    position: absolute;
+    bottom: 90px;
+    left: 45%;
+    font-size: 30px;
+    animation: wiggle 1.5s infinite;
+}
+
+/* BALL */
+.ball {
+    position: absolute;
+    bottom: 10px;
+    left: 60%;
+    font-size: 30px;
+    animation: roll 4s linear infinite;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes moveCloud {
+    0% { left: -50px; }
+    100% { left: 110%; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes roll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(200px); }
+}
+.buy-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    transform: scale(1.05);
+}
+.toy1, .toy2, .toy3 {
+    position: absolute;
+    font-size: 25px;
+    animation: floatToy 4s infinite ease-in-out;
+}
+
+.toy1 { top: 40px; left: 20%; }
+.toy2 { top: 100px; left: 50%; }
+.toy3 { top: 60px; left: 75%; }
+
+@keyframes floatToy {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <h1>🧸 बच्चों का सुंदर रूम</h1>
+    <p>Creative, Colorful & Comfortable Kids Room Ideas</p>
+
+    <div class="room">
+        <div class="sun">☀️</div>
+
+        <div class="cloud c1">☁️</div>
+        <div class="cloud c2">☁️</div>
+
+        <div class="bed">🛏️</div>
+        <div class="table">🪑</div>
+        <div class="toy">🧸</div>
+
+        <div class="ball">⚽</div>
+    </div>
+</header>
+
+
+<div class="container">
+
+    <div class="section">
+        <h2>🌟 बच्चों के रूम की खास बातें</h2>
+        <ul>
+            <li>रंग-बिरंगी दीवारें और आकर्षक थीम</li>
+            <li>सुरक्षित और आरामदायक फर्नीचर</li>
+            <li>पढ़ाई और खेलने के लिए अलग जगह</li>
+            <li>स्टोरेज स्पेस का सही उपयोग</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Modern Kids Room Design</h2>
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80">
+    </div>
+
+    <div class="section">
+        <h2>🧸 Playful Corner</h2>
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    </div>
+
+    <div class="section">
+        <h2>📚 Study Area</h2>
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1200&q=80">
+    </div>
+
+</div>
+<div class="section">
+    <h2>🛒 Kids Furniture (Amazon Picks)</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71g+5b8h9zL._SL1500_.jpg">
+            <h3>Kids Study Table</h3>
+            <p>Ergonomic & colorful study desk for children.</p>
+            <a href="YOUR-AFFILIATE-LINK" target="_blank">Buy on Amazon</a>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61Q8R7K5K1L._SL1500_.jpg">
+            <h3>Kids Bed with Storage</h3>
+            <p>Comfortable bed with extra storage space.</p>
+            <a href="YOUR-AFFILIATE-LINK" target="_blank">Buy on Amazon</a>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71Yk1vXk3zL._SL1500_.jpg">
+            <h3>Toy Organizer Shelf</h3>
+            <p>Keep toys clean and organized easily.</p>
+            <a href="YOUR-AFFILIATE-LINK" target="_blank">Buy on Amazon</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+let startX = 0;
+
+const slider = document.querySelector(".slideshow");
+
+slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX > endX + 50) {
+        changeSlide(1); // swipe left
+    } else if (startX < endX - 50) {
+        changeSlide(-1); // swipe right
+    }
+});
+</script>
+
+<footer>
+    © 2026 Kids Room Design | Made with ❤️
+</footer>
+
+<script>
+    function toggleMode() {
+        document.body.classList.toggle("dark");
+
+        const btn = document.querySelector(".toggle-btn");
+        if (document.body.classList.contains("dark")) {
+            btn.innerHTML = "☀️ Light Mode";
+        } else {
+            btn.innerHTML = "🌙 Dark Mode";
+        }
+    }
+</script>
+<div class="section">
+    <h2>🧠 AI Room Suggestions</h2>
+    <button onclick="suggestRoom()">Generate Idea</button>
+    <p id="aiText">Click to get a smart room design idea.</p>
+</div>
+<script>
+function suggestRoom() {
+    const ideas = [
+        "🎨 Use pastel blue walls + cartoon wallpaper for calming effect",
+        "🧸 Add toy storage boxes under bed to save space",
+        "🌙 Use warm LED lights for a cozy night mood",
+        "📚 Keep study corner near window for natural light",
+        "🪑 Use rounded furniture for child safety"
+    ];
+
+    document.getElementById("aiText").innerText =
+        ideas[Math.floor(Math.random() * ideas.length)];
+}
+</script>
+<a href="YOUR-AFFILIATE-LINK" class="buy-btn" target="_blank">
+    🛒 Buy Now
+</a>
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_7c8d7d5d6a.mp3?filename=happy-kids-ambient-118699.mp3" type="audio/mp3">
+</audio>
+
+<button onclick="toggleMusic()">🎵 Music</button>
+<script>
+let playing = false;
+
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+
+    if (!playing) {
+        music.play();
+        playing = true;
+    } else {
+        music.pause();
+        playing = false;
+    }
+}
+</script>
+<div class="toy1">🧸</div>
+<div class="toy2">🪀</div>
+<div class="toy3">🚗</div>
+</body>
+</html>

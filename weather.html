@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="navbar.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Bharat News - Today's Latest News (आज की ताजा खबर)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    
+    height: 100vh;
+    margin: 0;
+}
+
+.weather-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 450px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    box-sizing: border-box; /* Prevents padding from making the box wider than 350px */
+
+}
+
+.loca-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 450px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    box-sizing: border-box; /* Prevents padding from making the box wider than 350px */
+
+}
+
+input {
+    width: 100%; /* Changed to 100% since box-sizing is handled now */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Keeps padding inside the defined width */
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #2196f3;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; /* Makes the button look cleaner and match the input width */
+    font-size: 16px;
+}
+
+#weather {
+    margin-top: 20px;
+    text-align: left; /* Aligns weather details neatly */
+}
+
+#weather h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #d32f2f;
+    text-align: center;
+    font-weight: bold;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.weather-box,
+.loca-box {
+    background: white;
+    width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+}
+.weather-result{
+    margin-top:20px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    text-align:left;
+}
+
+.weather-result h3{
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+.weather-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,.08);
+    border-radius:12px;
+}
+
+.weather-item span{
+    font-size:18px;
+    font-weight:600;
+}
+
+.temp{
+    font-size:32px;
+    color:#fbbf24;
+    font-weight:900;
+}
+.weather-btn{
+    width:80%;
+    padding:16px;
+    border:none;
+    border-radius:18px;
+    font-size:18px;
+    font-weight:800;
+    color:#fff;
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #06b6d4,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    box-shadow:
+        0 12px 30px rgba(59,130,246,.4);
+
+    transition:.4s;
+}
+
+.weather-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 20px 40px rgba(59,130,246,.5);
+}
+
+.weather-btn span{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+</style>
+</head>
+<body>
+<!-- MAIN NEWS HEADER -->
+    <div id="navbar"></div>
+    <script>
+	document.getElementById("navbar").innerHTML = "<h1 style='background:red;color:white'>Navbar Loaded</h1>";
+    </script>
+    <script src="./navbar.js"></script>
+<br>
+<br>
+<h1 class="text-5xl md:text-6xl font-extrabold text-center text-white mb-8 drop-shadow-lg"> 🌤️ आज का मौसम </h1>
+<div class="weather-container">
+
+    <!-- LEFT CARD -->
+   <div class="loca-box">
+    <h2>📍 Current Location Weather</h2>
+    <div id="location">
+        Loading weather...
+    </div>
+   </div>
+
+	   <!-- RIGHT CARD -->
+    <div class="weather-box">
+        <h2>🌤 Select City Weather</h2>
+
+        <select id="city" class="w-full p-3 border border-gray-300 rounded-lg">
+            <option value="">Select City</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Pune">Pune</option>
+        </select>
+
+        <button class="weather-btn" onclick="getWeather()">
+    <span>🌤 Get Weather Report</span>
+</button>
+
+        <div id="weather"></div>
+    </div>
+</div>
+
+<script>
+const API_KEY = "a59e9c58faf8bb106bb50c57ad55fc04";
+
+async function getWeather() {
+    try {
+        const city = document.getElementById("city").value;
+
+        if(city === ""){
+            alert("Please select a city");
+            return;
+        }
+
+        const url =
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        document.getElementById("weather").innerHTML = `
+        <div class="weather-result">
+
+            <h3>🏙️ ${data.name}, ${data.sys.country}</h3>
+
+            <div class="weather-item">
+                <span>🌡️ Temperature</span>
+                <span class="temp">${Math.round(data.main.temp)}°C</span>
+            </div>
+
+            <div class="weather-item">
+                <span>💧 Humidity</span>
+                <span>${data.main.humidity}%</span>
+            </div>
+
+            <div class="weather-item">
+                <span>🌥️ Condition</span>
+                <span>${data.weather[0].description}</span>
+            </div>
+
+            <div class="weather-item">
+                <span>💨 Wind Speed</span>
+                <span>${data.wind.speed} m/s</span>
+            </div>
+
+        </div>`;
+    }
+    catch(error){
+        document.getElementById("weather").innerHTML =
+        "❌ Unable to fetch weather data";
+    }
+}
+
+async function getCurrentLocationWeather() {
+
+    navigator.geolocation.getCurrentPosition(async (position) => {
+
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        const url =
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
+
+        try {
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            document.getElementById("location").innerHTML = `
+            <div class="weather-result">
+
+                <h3>📍 ${data.name}, ${data.sys.country}</h3>
+
+                <div class="weather-item">
+                    <span>🌡️ Temperature</span>
+                    <span class="temp">${Math.round(data.main.temp)}°C</span>
+                </div>
+
+                <div class="weather-item">
+                    <span>💧 Humidity</span>
+                    <span>${data.main.humidity}%</span>
+                </div>
+
+                <div class="weather-item">
+                    <span>🌥️ Condition</span>
+                    <span>${data.weather[0].description}</span>
+                </div>
+
+                <div class="weather-item">
+                    <span>💨 Wind Speed</span>
+                    <span>${data.wind.speed} m/s</span>
+                </div>
+
+            </div>`;
+        }
+        catch(error){
+            document.getElementById("location").innerHTML =
+            "❌ Unable to fetch weather data";
+        }
+
+    }, () => {
+        alert("Location access denied");
+    });
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("location").innerHTML =
+        "⏳ Loading weather...";
+    getCurrentLocationWeather();
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page Loaded");
+    getCurrentLocationWeather();
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सादगी | द न्यू लग्ज़री</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern CSS Custom Properties (Design System Tokens) */
+        :root[data-theme="light"] {
+            --bg-color: #F6F4F0; /* Warm Alabaster White */
+            --bg-card: #FFFFFF;
+            --text-main: #1C1B19; /* Soft Charcoal */
+            --text-muted: #686661;
+            --accent: #8C7A6B; /* Earthy Luxury Gold */
+            --accent-light: #EFEBE4;
+            --border: rgba(0, 0, 0, 0.06);
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        :root[data-theme="light"]{
+    --bg-color:#f8f6f2;
+    --bg-card:#ffffff;
+
+    --text-main:#111827;
+    --text-muted:#4b5563;
+
+    --accent:#c89b3c;
+    --accent-2:#e0b85a;
+    --accent-light:#fff7e6;
+
+    --gold-gradient:
+    linear-gradient(
+        135deg,
+        #f6d365 0%,
+        #d4af37 50%,
+        #b8860b 100%
+    );
+
+    --border:rgba(200,155,60,.18);
+
+    --glass:rgba(255,255,255,.75);
+}
+:root[data-theme="dark"]{
+    --bg-color:#0b0f19;
+    --bg-card:#131a26;
+
+    --text-main:#f8fafc;
+    --text-muted:#cbd5e1;
+
+    --accent:#f6d365;
+    --accent-2:#d4af37;
+    --accent-light:#1c2333;
+
+    --gold-gradient:
+    linear-gradient(
+        135deg,
+        #f6d365 0%,
+        #d4af37 50%,
+        #b8860b 100%
+    );
+
+    --border:rgba(246,211,101,.15);
+
+    --glass:rgba(11,15,25,.75);
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .hindi-title {
+            font-family: 'Noto Serif Devanagari', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Fixed Navigation Menu with Blur Effect */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            z-index: 10000;
+            transition: background 0.4s;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-toggle {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Hero Editorial Section */
+        .hero {
+            padding: 180px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 58px;
+            line-height: 1.25;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+ background:var(--gold-gradient);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+        }
+
+
+        .hero-desc {
+            font-size: 19px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 550px;
+        }
+
+        .hero-img-box {
+            position: relative;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            background-image: url('l1.png');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .hero-img-box:hover .hero-img {
+            transform: scale(1.05);
+        }
+
+        /* Parallax/Fade Animation Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pillars Section (The Philosophy) */
+        .pillars {
+            padding: 120px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .pillar-card {
+            padding: 40px;
+            border-radius: 16px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        .pillar-num {
+            font-size: 16px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Editorial Showcase Gallery */
+        .showcase {
+            padding: 120px 0;
+        }
+
+        .showcase-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .showcase-row.reverse {
+            direction: rtl;
+        }
+
+        .showcase-row.reverse .showcase-text {
+            direction: ltr;
+        }
+
+        .showcase-img-holder {
+            height: 480px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .sc-img-1 { background: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800') center/cover; }
+        .sc-img-2 { background: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800') center/cover; }
+
+        .showcase-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .showcase-text p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Soundscape Focus Lounge */
+        .soundscape {
+            background-color: var(--accent-light);
+            padding: 80px 0;
+            border-radius: 24px;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .sound-btn {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            border: none;
+            padding: 16px 36px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            font-family: inherit;
+        }
+
+       
+
+        /* Animations Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-grid, .pillars-grid, .showcase-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title { font-size: 42px; }
+            .hero-img-box, .showcase-img-holder { height: 380px; }
+            .showcase-row.reverse { direction: ltr; }
+        }
+.quote-box{
+    position: relative;
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px 40px;
+
+    background: linear-gradient(
+        135deg,
+        #f6d365,
+        #d4af37,
+        #b8860b
+    );
+
+    color: blue;
+    text-align: center;
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(212,175,55,.35),
+        0 0 80px rgba(212,175,55,.25);
+
+    animation:
+        floatBox 6s ease-in-out infinite,
+        glowPulse 4s ease-in-out infinite;
+}
+
+.quote-box p{
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+.quote-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:shimmer 4s infinite;
+}
+.quote-box::after{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    border-radius:26px;
+
+    background:linear-gradient(
+        90deg,
+        #f6d365,
+        #fff,
+        #d4af37,
+        #f6d365
+    );
+
+    background-size:300% 300%;
+
+    z-index:-1;
+
+    animation:borderMove 8s linear infinite;
+}
+@keyframes floatBox{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes glowPulse{
+    0%,100%{
+        box-shadow:
+        0 20px 50px rgba(212,175,55,.35),
+        0 0 60px rgba(212,175,55,.25);
+    }
+
+    50%{
+        box-shadow:
+        0 30px 80px rgba(212,175,55,.55),
+        0 0 120px rgba(212,175,55,.45);
+    }
+}
+
+@keyframes shimmer{
+    0%{
+        left:-150%;
+    }
+    100%{
+        left:200%;
+    }
+}
+
+@keyframes borderMove{
+    0%{
+        background-position:0% 50%;
+    }
+    100%{
+        background-position:300% 50%;
+    }
+}
+.quote-box:hover{
+    transform:scale(1.03);
+    transition:0.5s ease;
+}
+.card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.03)
+    );
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    color:var(--text-main);
+}
+
+.card h3{
+    color:var(--accent);
+}
+
+.card p{
+    color:var(--text-muted);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 20px 50px rgba(255,215,0,.15);
+border-color:rgba(255,215,0,.3);
+}
+
+.icon{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+margin-bottom:70px;
+font-weight:700;
+color:var(--text-main);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="brand-logo">सादगी.</div>
+            <div class="nav-controls">
+                <button class="btn-toggle" onclick="toggleTheme()" aria-label="Theme Switcher" id="theme-btn">डार्क मोड</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <p>जीवन मंत्र</p>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="hero-tag">एक नया दृष्टिकोण</span>
+			
+                    <h1 class="hero-title">सादगी: आधुनिक युग की नई लग्ज़री।</h1>
+                    <div class="quote-box"><p>"सादगी वह लग्ज़री है, जिसे खरीदना नहीं, जीना पड़ता है।" ✨</p></div>
+               
+                </div>
+                <div class="hero-img-box">
+                    <div class="hero-img"></div>
+                </div>
+            </div>
+        </section>
+
+<section class="section">
+
+<h2 class="section-title">✨ 20 प्रमुख Pillars</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🌿</div>
+<h3>कम में ज्यादा</h3>
+<p>केवल वही रखें जो वास्तव में उपयोगी और मूल्यवान हो।
+अनावश्यक वस्तुओं और जटिलताओं को हटाकर जीवन में
+स्पष्टता लाई जाती है।
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⏳</div>
+<h3>समय की स्वतंत्रता</h3>
+<p>
+सबसे बड़ी लग्ज़री पैसा नहीं बल्कि समय है।
+सादगी हमें भागदौड़ से बचाकर प्रिय कार्यों और रिश्तों के लिए
+समय देती है।
+</p>
+</div>
+<div class="flip-card">
+    
+    <div class="flip-card-inner">
+
+        <!-- Front Side -->
+        <div class="flip-card-front">
+            <div class="icon">🧘</div>
+            <h3>मानसिक शांति</h3>
+        </div>
+
+        <!-- Back Side -->
+        <div class="flip-card-back">
+            <p>
+                कम तनाव, कम अव्यवस्था और कम तुलना।
+                यही सादगी की पहचान है जो वास्तविक
+                समृद्धि का अनुभव कराती है।
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<div class="card">
+<div class="icon">🧘</div>
+<h3>मानसिक शांति</h3>
+<p>
+कम तनाव, कम अव्यवस्था और कम तुलना।
+यही सादगी की पहचान है जो वास्तविक समृद्धि का अनुभव कराती है।
+</p>
+</div>
+
+<div class="card">
+<div class="icon">✨</div>
+<h3>गुणवत्ता पर ध्यान</h3>
+<p>
+सादगी मात्रा नहीं, गुणवत्ता को महत्व देती है।
+कम चीजें लेकिन श्रेष्ठ और टिकाऊ।
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💎</div>
+<h3>प्रामाणिकता</h3>
+<p>
+अपनी वास्तविक पहचान के साथ जीना।
+जो आप हैं, उसी को आत्मविश्वास से स्वीकार करना
+सच्ची लग्ज़री है।
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>सतत जीवनशैली</h3>
+<p>
+कम उपभोग, कम बर्बादी और अधिक जिम्मेदारी।
+यही आधुनिक समय की नई विलासिता है।
+</p>
+</div>
+
+<div class="card">
+<div class="icon">❤️</div>
+<h3>अर्थपूर्ण रिश्ते</h3>
+<p>
+सादगी हमें वस्तुओं से अधिक लोगों को महत्व देना सिखाती है।
+गहरे और सच्चे संबंध सबसे बड़ी संपत्ति हैं।
+</p>
+</div>
+
+</div>
+
+</section>
+
+        <section class="pillars" id="philosophy-target">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>द थ्री पिलर्स (The Three Pillars)</h2>
+                    <p style="color: var(--text-muted);">सादगी कोई कमी नहीं है, बल्कि यह उन चीज़ों को हटाने की कला है जो आपके जीवन का अर्थ छीन लेती हैं।</p>
+                </div>
+                
+                <div class="pillars-grid">
+                    <div class="pillar-card reveal">
+                        <span class="pillar-num">01 / मानसिक स्पष्टता</span>
+                        <h3>विचारों का डिटॉक्स</h3>
+                        <p>दिन भर के डिजिटल नोटिफिकेशन से दूरी बनाना और अपने मस्तिष्क को गहरे विचारों और शांति के लिए जगह देना ही असली लग्ज़री है।</p>
+                    </div>
+                    <div class="pillar-card reveal">
+                        <span class="pillar-num">02 / क्युरेटेड स्पेस</span>
+                        <h3>भौतिक मिनिमलिज्म</h3>
+                        <p>हज़ारों गैर-ज़रूरी सामानों की जगह केवल कुछ बेहद चुनिंदा, उच्च-गुणवत्ता और सार्थक वस्तुओं से अपने आस-पास के माहौल को सजाना।</p>
+                    </div>
+                    <div class="pillar-card reveal">
+                        <span class="pillar-num">03 / सचेत समय</span>
+                        <h3>धीमी जीवनशैली</h3>
+                        <p>हर पल को हड़बड़ी में जीने के बजाय ठहरना, सवेरे की धूप को महसूस करना और भोजन का स्वाद शांति से लेना।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase">
+            <div class="container">
+                
+                <div class="showcase-row reveal">
+                    <div class="showcase-img-holder sc-img-1"></div>
+                    <div class="showcase-text">
+                        <h3>द एस्थेटिक ऑफ साइलेंस (शांत वातावरण की कला)</h3>
+                        <p>जब आप अपने घर या वर्कस्पेस से अनावश्यक विजुअल शोर को हटा देते हैं, तो वहां एक गहरा ठहराव जन्म लेता है। यह डिज़ाइन दर्शन आपके आंतरिक संतुलन को बहाल करने में मदद करता है।</p>
+                    </div>
+                </div>
+
+                <div class="showcase-row reverse reveal">
+                    <div class="showcase-img-holder sc-img-2"></div>
+                    <div class="showcase-text">
+                        <h3>माइंडफुल लिविंग: आदतों में लग्ज़री</h3>
+                        <p>महंगी कारें या ब्रांडेड कपड़े ही वैभव नहीं हैं। बिना किसी तनाव के अपने दिन की शुरुआत करने का समय होना, और गहरी नींद सो पाना आज के समय का असली ऐश्वर्य है।</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        </main>
+
+    <script>
+        // 1. Dynamic Scroll Reveal Animation Configuration
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100; // Trigger thresholdpx
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        });
+
+        // Trigger on initial page load for topmost items
+        window.dispatchEvent(new Event('scroll'));
+
+        // 2. Global Design Token System Theme Switcher
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const btn = document.getElementById('theme-btn');
+            
+            htmlElement.setAttribute('data-theme', targetTheme);
+            btn.textContent = targetTheme === 'light' ? 'डार्क मोड' : 'लाइट मोड';
+        }
+
+        // 3. Audio Micro-Interaction Logic Block
+        let audioPlaying = false;
+        function toggleAudio() {
+            const audioNode = document.getElementById('bg-sound');
+            const triggerBtn = document.getElementById('sound-trigger');
+            
+            if(!audioPlaying) {
+                audioNode.play().catch(() => console.log("Audio block active"));
+                audioPlaying = true;
+                triggerBtn.textContent = "ध्वनि बंद करें";
+                triggerBtn.style.backgroundColor = "var(--accent)";
+                triggerBtn.style.color = "white";
+            } else {
+                audioNode.pause();
+                audioPlaying = false;
+                triggerBtn.textContent = "एम्बिएंट साउंड ऑन करें";
+                triggerBtn.style.backgroundColor = "var(--text-main)";
+                triggerBtn.style.color = "var(--bg-color)";
+            }
+        }
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+            card.classList.add('show');
+        }
+    });
+});
+
+const revealElements = document.querySelectorAll('.reveal');
+
+function reveal(){
+    revealElements.forEach(el=>{
+        if(el.getBoundingClientRect().top <
+           window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>
