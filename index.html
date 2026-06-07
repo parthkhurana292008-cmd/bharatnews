@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+	
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="navbar.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Bharat News - Today's Latest News (आज की ताजा खबर)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!-- MAIN NEWS HEADER -->
+    <div id="navbar"></div>
+    <script>
+	document.getElementById("navbar").innerHTML = "<h1 style='background:red;color:white'>Navbar Loaded</h1>";
+    </script>
+    <script src="./navbar.js"></script>
+	
+
+    <!-- BREAKING NEWS RUNNING TICKER -->
+    <div class="ticker-container">
+        <div class="ticker-title">बड़ी खबर</div>
+        <div class="ticker-text">
+            <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+                🚨 शेयर बाजार में भारी उछाल, रिकॉर्ड स्तर पर पहुंचा सेंसेक्स! | 🌧️ मौसम विभाग का अलर्ट: अगले 48 घंटों में इन राज्यों में भारी बारिश की चेतावनी! | 🏆 टी-20 सीरीज के लिए भारतीय टीम का एलान, नए चेहरों को मिला मौका।
+            </marquee>
+        </div>
+    </div>
+
+    <!-- MAIN GRID CONTAINER -->
+    <main class="main-container">
+        
+        <!-- LEFT COLUMN: MAIN CONTENT FEED -->
+        <section class="content-feed">
+            
+            <!-- HERO BIG STORY -->
+            <article class="hero-story">
+                <a href="#">
+                    <div class="hero-image">
+                        <div class="hero-badge">बड़ी खबर (Top Story)</div>
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">देश के मुख्य इंफ्रास्ट्रक्चर प्रोजेक्ट्स को लेकर कैबिनेट का बड़ा फैसला, बजट मंजूर</h1>
+                        <p style="color:#666; font-size:0.95rem;">सरकार ने आज हुई कैबिनेट बैठक में बड़े इंफ्रास्ट्रक्चर डेवलपमेंट प्रोजेक्ट्स को हरी झंडी दे दी है। इस योजना के तहत देश भर में नए एक्सप्रेस-वे और इकोनॉमिक कॉरिडोर बनाए जाएंगे...</p>
+                    </div>
+                </a>
+            </article>
+
+            <!-- SECONDARY STORIES SUB-GRID -->
+            <div class="sub-grid">
+                <article class="news-card">
+                    <a href="#">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <div class="card-category">राजनीति</div>
+                            <h3 class="card-title">संसद सत्र के दौरान नए विधेयकों पर चर्चा तेज, विपक्ष का हंगामा जारी</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="news-card">
+                    <a href="#">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <div class="card-category">मनोरंजन</div>
+                            <h3 class="card-title">अपकमिंग मेगा बजट फिल्म का टीजर आउट, सोशल मीडिया पर फैंस का क्रेज</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="news-card">
+                    <a href="#">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <div class="card-category">खेल</div>
+                            <h3 class="card-title">बॉर्डर-गावस्कर ट्रॉफी के लिए भारतीय टीम की ट्रेनिंग शुरू, कप्तान ने बदला प्लान</h3>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="news-card">
+                    <a href="#">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <div class="card-category">गैजेट्स</div>
+                            <h3 class="card-title">भारत में लॉन्च हुआ नया 5G स्मार्टफोन, कम कीमत में मिल रहे हैं फ्लैगशिप फीचर्स</h3>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: SIDEBAR WIDGETS -->
+        <aside class="sidebar">
+            
+            <!-- TRENDING NEWS WIDGET -->
+            <div class="widget">
+                <div class="widget-title">ट्रेंडिंग (Trending Now)</div>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-number">01</div>
+                        <a href="gold.html" class="trending-text">सोने और चांदी की कीमतों में रिकॉर्ड, चेक करें आज के भाव</a>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-number">02</div>
+                        <a href="weather.html" class="trending-text">आज का मौसम </a>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-number">03</div>
+                        <a href="#" class="trending-text">बोर्ड परीक्षा के नतीजों की तारीख घोषित, इस डायरेक्ट लिंक से करें चेक</a>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-number">04</div>
+                        <a href="#" class="trending-text">वर्क फ्रॉम होम को लेकर बड़ी आईटी कंपनियों ने बदला अपना फैसला</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- NEWSLETTER / BREAKING ALERTS -->
+            <div class="widget" style="background:var(--primary-red); color: white; border: none;">
+                <h3 style="margin-bottom: 10px;">न्यूजलेटर सब्सक्राइब करें</h3>
+                <p style="font-size:0.85rem; margin-bottom:15px; opacity:0.9;">व्हाट्सएप या ईमेल पर सीधे ब्रेकिंग न्यूज अपडेट पाने के लिए अपना ईमेल दर्ज करें।</p>
+                <input type="email" placeholder="आपका ईमेल पता" style="width:100%; padding:10px; border:none; border-radius:4px; margin-bottom:10px;">
+                <button style="width:100%; padding:10px; background:var(--dark-bg); color:white; border:none; font-weight:bold; border-radius:4px; cursor:pointer;">सब्सक्राइब करें</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">हमारे बारे में</a> | 
+            <a href="#">गोपनीयता नीति</a> | 
+            <a href="#">नियम और शर्तें</a> | 
+            <a href="#">संपर्क करें</a>
+        </div>
+        <p>&copy; 2026 Bharat News Portal. All Rights Reserved. Designed for Professional Scale.</p>
+    </footer>
+
+</body>
+</html>
