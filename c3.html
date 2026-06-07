@@ -22,6 +22,29 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         background: #121212;
         color: #f1f1f1;
     }
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+ul li{
+    margin:12px 0;
+    padding:8px 12px;
+    background:#f8fbff;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+ul li:hover{
+    transform:translateX(5px);
+    background:#eef6ff;
+}
 
     header {
         background: linear-gradient(135deg, #6dd5ed, #2193b0);
@@ -76,7 +99,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     body.dark .section {
         background: #1e1e1e;
-        box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+        
     }
 
     .section h2 {
@@ -91,13 +114,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         line-height: 1.8;
     }
 
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #2193b0;
-        color: white;
-    }
-
+    
     img {
         width: 100%;
         border-radius: 12px;
@@ -122,7 +139,55 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 body.dark .card {
     background: #1e1e1e;
 }
+/* ===== IMPROVED DARK MODE ===== */
 
+body.dark{
+    background:#0b0f19;
+    color:#ffffff;
+}
+
+body.dark .section{
+    background:#1a2332;
+    border:2px solid #334155;
+    box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+
+body.dark p,
+body.dark li{
+    color:#f8fafc;
+    font-weight:500;
+}
+
+body.dark ul li{
+    background:#243244;
+    border-left:5px solid #60a5fa;
+}
+
+body.dark ul li:hover{
+    background:#334155;
+}
+
+body.dark h1,
+body.dark h2{
+    color:#60a5fa !important;
+    font-weight:800;
+}
+
+body.dark #aiText{
+    color:#facc15;
+    font-size:18px;
+    font-weight:700;
+}
+
+body.dark button{
+    border:2px solid #60a5fa;
+}
+
+body.dark .toggle-btn{
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+}
 .card img {
     width: 100%;
     height: 180px;
@@ -384,6 +449,7 @@ body.dark .card {
     padding:12px 18px;
     border-radius:30px;
     cursor:pointer;
+}
 </style>
 </head>
 
@@ -404,9 +470,9 @@ body.dark .card {
         <div class="sun">☀️</div>
 
         <div class="cloud c1">☁️</div>
-        <div class="cloud c2">☁️</div>
+        <div class="cloud c2">🌈</div>
 
-        <div class="bed">🛏️</div>
+        <div class="bed">⭐</div>
         <div class="table">🪑</div>
         <div class="toy">🧸</div>
 
@@ -611,24 +677,54 @@ slider.addEventListener("touchend", (e) => {
 </script>
 
 <div class="section">
-    <h2 style="color:red">🧠 AI Room Suggestions</h2>
-    <button onclick="suggestRoom()">Generate Idea</button>
-    <p id="aiText">Click to get a smart room design idea.</p>
+    <h2 style="color:red">🏰 AI Room Suggestions</h2>
+
+<button onclick="suggestRoom()">🎨 Generate Idea</button>
+
+<p id="aiText">Click to get a smart room design idea.</p>
+
+<img id="roomImage"
+     src="./room/11.png"
+     alt="Room Design"
+     style="width:100%;max-width:600px;margin-top:15px;border-radius:15px;display:none;">
 </div>
+
 <script>
 function suggestRoom() {
-    const ideas = [
-        "🎨 Use pastel blue walls + cartoon wallpaper for calming effect",
-        "🧸 Add toy storage boxes under bed to save space",
-        "🌙 Use warm LED lights for a cozy night mood",
-        "📚 Keep study corner near window for natural light",
-        "🪑 Use rounded furniture for child safety"
-    ];
 
-    document.getElementById("aiText").innerText =
+    const ideas = [
+  { image: "./room/1.jfif" },
+  { image: "./room/2.jfif" },
+  { image: "./room/3.jfif" },
+  { image: "./room/4.jfif" },
+  { image: "./room/5.jfif" },
+  { image: "./room/6.jfif" },
+  { image: "./room/7.jfif" },
+  { image: "./room/8.jfif" },
+  { image: "./room/9.jfif" },
+  { image: "./room/10.jfif" },
+  { image: "./room/11.png" },
+  { image: "./room/12.png" },
+  { image: "./room/13.png" },
+  { image: "./room/14.png" },
+  { image: "./room/15.png" },
+  {image: "./room/16.png" },
+  { image: "./room/17.png" },
+  { image: "./room/18.png" },
+  { image: "./room/19.png" },
+  { image: "./room/20.png" }
+];
+
+    const randomIdea =
         ideas[Math.floor(Math.random() * ideas.length)];
+
+  
+    const img = document.getElementById("roomImage");
+    img.src = randomIdea.image;
+    img.style.display = "block";
 }
 </script>
+
 
 
 <script>
@@ -636,7 +732,7 @@ let playing = false;
 
 function toggleMusic() {
     const music = document.getElementById("bgMusic");
-    const btn = document.querySelector("button");
+    const btn = document.querySelector(".music-btn");
 
     if (music.paused) {
         music.play();
