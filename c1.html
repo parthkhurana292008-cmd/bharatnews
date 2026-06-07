@@ -1,647 +1,288 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>बच्चों के लिए स्क्रीन टाइम: कितना सही, कितना गलत?</title>
-    <style>
-        /* CSS Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 85%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            border-bottom: 5px solid #ffcc00;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Main Content Layout */
-        .main-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
+    <title>बच्चों का स्क्रीन टाइम कितना होना चाहिए?</title>
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            slate: '#475569',
+                            primary: '#2563eb',
+                            secondary: '#0ea5e9',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
             }
         }
+    </script>
+</head>
+<body class="bg-brand-light text-brand-dark antialiased font-sans">
 
-        /* Card Styles */
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            color: #1e3c72;
-            margin-bottom: 20px;
-            border-left: 5px solid #ffcc00;
-            padding-left: 10px;
-            font-size: 1.8rem;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            color: #555;
-        }
-
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 1rem;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #1e3c72;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        /* Bullet Lists */
-        ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        /* Highlight Box / Quote */
-        .warning-box {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            background-color: #eef2f7;
-            padding: 25px;
-            border-radius: 8px;
-            height: fit-content;
-        }
-
-        .sidebar h3 {
-            color: #2a5298;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Footer */
-        
-.hero-container{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-    position:relative;
-    z-index:2;
-}
-
-.hero-container{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-    position:relative;
-    z-index:2;
-}
-.hero-card img{
-    width:100%;
-    max-width:520px;
-    display:block;
-    border-radius:24px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.25);
-    border:4px solid rgba(255,255,255,0.15);
-    transition:.4s ease;
-}
-.hero-card img:hover{
-    transform:scale(1.03);
-}
-
-.hero-text{
-    text-align:left;
-}
-@media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-card img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.hero-banner{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(135deg,#1e3c72 0%,#2a5298 100%);
-    padding:80px 40px;
-    color:#fff;
-}
-.hero-banner::before{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:rgba(255,255,255,0.08);
-    border-radius:50%;
-    top:-150px;
-    right:-100px;
-}
-
-.hero-banner::after{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:rgba(255,255,255,0.05);
-    border-radius:50%;
-    bottom:-120px;
-    left:-80px;
-}
-
-.hero-banner h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-.hero-badge{
-    display:inline-block;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
+    <!-- Premium Hero Header -->
+    <header class="relative bg-blue-950 text-blue-200 overflow-hidden py-16 px-6 md:px-12 text-center md:text-left border-b border-slate-800">
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" style="background-image: url('c1.png');"></div>
+        <div class="relative max-w-7xl mx-auto z-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            
+            <div class="md:col-span-2 space-y-4">
+                <span display:inline-block;
     padding:8px 18px;
     border-radius:50px;
-    margin-bottom:18px;
-    font-size:.9rem;
-    font-weight:600;
-    border:1px solid rgba(255,255,255,0.2);
-}
-.hero-banner p {
-    color: rgba(255,255,255,0.9);
-    font-size: 1.3rem;
-}
-.info-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    margin:40px 0;
-}
-
-
-.alert-card{
-    background:linear-gradient(135deg,#fff7e6,#fff);
-    border-left:6px solid #ff9800;
-    border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.alert-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 28px rgba(0,0,0,0.12);
-}
-
-.alert-card h3{
-    margin:0 0 12px;
-    font-size:1.4rem;
-    color:#e67e22;
-}
-
-.alert-card p{
-    margin:0;
-    line-height:1.8;
-    color:#444;
-    font-size:1rem;
-}
-
-.warning{
-    background:linear-gradient(135deg,#ffeaea,#fff);
-    border-left-color:#e53935;
-}
-
-.warning h3{
-    color:#e53935;
-}
-
-.conclusion{
-    background:linear-gradient(135deg,#e8fff0,#fff);
-    border-left-color:#2ecc71;
-}
-
-.conclusion h3{
-    color:#27ae60;
-}
-
-.icon{
-    font-size:2rem;
-    margin-bottom:10px;
-    display:block;
-}
-ul.check-list li::marker {
-    content: '✅ ';
-    font-size: 1.1em; /* Adjust size if needed */
-  }
-  
-  /* Add padding for cleaner spacing */
-  ul.check-list li {
-    padding-left: 5px;
-  }
-.hero-text h2{
-    font-size:3rem;
-    line-height:1.2;
     color:#fff;
-    margin-bottom:20px;
-    border:none;
-    padding:0;
-}
+    font-size:.85rem;
+    font-weight:600;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.25);
+">                 👨‍👩‍👧 Parenting • Child Health • Digital Wellness
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                   बच्चों का स्क्रीन टाइम कितना होना चाहिए?
+                </h1>
+                <p class="text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                    उम्र के अनुसार विशेषज्ञ गाइड
+                </p>
+            </div>
 
-.hero-text p{
-    color:rgba(255,255,255,.9);
-    font-size:1.15rem;
-    line-height:1.8;
-    margin-bottom:30px;
-}
-.hero-btn{
-    display:inline-block;
-    padding:14px 30px;
-    background:#ffcc00;
-    color:#1e3c72;
-    text-decoration:none;
-    font-weight:700;
-    border-radius:50px;
-    transition:.3s;
-}
-
-.hero-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(255,204,0,.35);
-}
-
-.hero-stats{
-    display:flex;
-    gap:25px;
-    margin-top:35px;
-}
-
-.hero-stat{
-    background:rgba(255,255,255,.12);
-    padding:12px 18px;
-    border-radius:14px;
-    backdrop-filter:blur(10px);
-}
-
-.hero-stat strong{
-    display:block;
-    font-size:1.2rem;
-}
-
-@media(max-width:900px){
-
-    .hero-container{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .hero-text{
-        text-align:center;
-    }
-
-    .hero-text h2{
-        font-size:2rem;
-    }
-
-    .hero-stats{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .hero-card img{
-        margin:auto;
-    }
-}
-/* Card Animation */
-.alert-card{
-    opacity:0;
-    transform:translateY(50px);
-    animation:fadeUp 0.8s ease forwards;
-}
-
-/* Different Delay */
-.alert-card:nth-child(1){
-    animation-delay:0.2s;
-}
-
-.alert-card:nth-child(2){
-    animation-delay:0.6s;
-}
-
-.alert-card:nth-child(3){
-    animation-delay:1s;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* Enhanced Hover Effect */
-.alert-card{
-    transition:all 0.4s ease;
-}
-
-.alert-card:hover{
-    transform:scale(1.08) rotate(2deg);
-    box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-/* Floating Icons */
-.icon{
-    display:inline-block;
-    animation:floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-/* Glowing Border Effect */
-.alert-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:18px;
-    padding:2px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,152,0,.4),
-        rgba(255,255,255,.1)
-    );
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
-    pointer-events:none;
-}
-
-.alert-card{
-    position:relative;
-    overflow:hidden;
-	animation:floatCard 4s ease-in-out infinite;
-}
-
-/* Shine Effect */
-.alert-card::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:70%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.4),
-        transparent
-    );
-    transition:0.8s;
-}
-
-.alert-card:hover::after{
-    left:130%;
-}
-.alert-card{
-    opacity:0;
-    transform:translateY(60px);
-    transition:all .8s ease;
-}
-
-.alert-card.show{
-    opacity:1;
-    transform:translateY(0);
-}
-@keyframes floatCard{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
-    100%{transform:translateY(0);}
-}
-
-
-    </style>
-</head>
-<body>
-<!-- Header Banner -->
-   <section class="hero-banner">
-
-    <div class="hero-container">
-
-        <div class="hero-card">
-            <img src="c1.png" alt="बच्चों का स्क्रीन टाइम">
+            <div class="flex justify-center md:justify-end">
+                <img src="c1.png" alt="बच्चों का स्क्रीन टाइम" class="w-full max-w-xs md:max-w-sm rounded-2xl shadow-2xl border-4 border-slate-700/50 object-cover aspect-video md:aspect-square transform hover:scale-105 transition duration-300">
+            </div>
         </div>
+    </header>
 
-        <div class="hero-text">
-
-            <span class="hero-badge">
-                📱 Parenting & Child Health Guide
-            </span>
-
-            <h2>बच्चों के लिए स्क्रीन टाइम:  कितना सही, कितना गलत?</h2>
-
-            <p> मोबाइल, टैबलेट और टीवी का बढ़ता उपयोग बच्चों की पढ़ाई, नींद, आंखों और मानसिक विकास को प्रभावित कर सकता है। जानिए सही स्क्रीन टाइम सीमा, संभावित जोखिम और माता-पिता के लिए महत्वपूर्ण सुझाव। </p>
-
+    <!-- Main Dynamic Content Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
-        </div>
-
-    </div>
-
-</section>
-
-    <div class="container main-content">
-        
-        <main>
-            <section class="card">
-                 <p>आज के डिजिटल युग में मोबाइल, टैबलेट और अन्य स्क्रीन डिवाइस बच्चों के जीवन का हिस्सा बन चुके हैं। ऑनलाइन पढ़ाई, मनोरंजन और नई चीजें सीखने के लिए स्क्रीन उपयोगी हो सकती है, लेकिन इसका अत्यधिक उपयोग बच्चों के शारीरिक और मानसिक स्वास्थ्य पर नकारात्मक प्रभाव भी डाल सकता है। इसलिए यह जानना जरूरी है कि बच्चों के लिए कितना स्क्रीन टाइम सही माना जाता है।</p>
-                <h2>स्क्रीन टाइम क्या है?</h2>
-		<p>स्क्रीन टाइम से तात्पर्य उस समय से है जो बच्चा मोबाइल, टैबलेट, कंप्यूटर, टीवी या अन्य डिजिटल स्क्रीन के सामने बिताता है। इसमें पढ़ाई, गेम खेलना, वीडियो देखना और सोशल मीडिया का उपयोग शामिल हो सकता है।</p>
-            </section>
-
-            <section class="card">
-                <h2>उम्र के अनुसार कितना स्क्रीन टाइम सही है?</h2>
-                <p>विशेषज्ञों के अनुसार, अलग-अलग उम्र के बच्चों के लिए स्क्रीन टाइम की सीमा इस प्रकार होनी चाहिए:</p>
+            <!-- Left Side: Article Content & Data Table -->
+            <main class="lg:col-span-2 space-y-8">
                 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>बच्चे की उम्र</th>
-                            <th>सही स्क्रीन टाइम (मैक्सिमम)</th>
-                            <th>किस तरह का कंटेंट?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>0 से 18 महीने</strong></td>
-                            <td>बिल्कुल नहीं (0 मिनट)</td>
-                            <td>केवल दूर रहने वाले परिवार से वीडियो कॉल</td>
-                        </tr>
-                        <tr>
-                            <td><strong>18 से 24 महीने</strong></td>
-                            <td>बहुत कम (कभी-कभी)</td>
-                            <td>उच्च गुणवत्ता वाले एजुकेशनल प्रोग्राम (माता-पिता के साथ)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2 से 5 साल</strong></td>
-                            <td>अधिकतम 1 घंटा प्रतिदिन</td>
-                            <td>इंटरैक्टिव और ज्ञानवर्धक कार्टून या गेम्स</td>
-                        </tr>
-                        <tr>
-                            <td><strong>6 साल से बड़े बच्चे</strong></td>
-                            <td>1 से 2 घंटे प्रतिदिन</td>
-                            <td>पढ़ाई और मनोरंजन का संतुलित मिश्रण (कड़ी निगरानी में)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+                <!-- Introduction Card -->
+                <article class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 space-y-6">
+                    <p class="text-brand-slate text-base md:text-lg leading-relaxed">
+                        आज के डिजिटल युग में मोबाइल, टैबलेट और अन्य स्क्रीन डिवाइस बच्चों के जीवन का हिस्सा बन चुके हैं। ऑनलाइन पढ़ाई, मनोरंजन और नई चीजें सीखने के लिए स्क्रीन उपयोगी हो सकती है, लेकिन इसका अत्यधिक उपयोग बच्चों के शारीरिक और मानसिक स्वास्थ्य पर नकारात्मक प्रभाव भी डाल सकता है। इसलिए यह जानना जरूरी है कि बच्चों के लिए कितना स्क्रीन टाइम सही माना जाता है।
+                    </p>
+                    
+                    <div class="pt-4 border-t border-slate-100">
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-3 border-l-4 border-brand-primary pl-3">
+                            स्क्रीन टाइम क्या है?
+                        </h2>
+                        <p class="text-brand-slate leading-relaxed">
+                            स्क्रीन टाइम से तात्पर्य उस समय से है जो बच्चा मोबाइल, टैबलेट, कंप्यूटर, टीवी या अन्य डिजिटल स्क्रीन के सामने बिताता है। इसमें पढ़ाई, गेम खेलना, वीडियो देखना और सोशल मीडिया का उपयोग शामिल हो सकता है।
+                        </p>
+                    </div>
+                </article>
 
-            <section class="card">
-                <h2>ज्यादा मोबाइल देखने के नुकसान</h2>
-                <p>यदि बच्चे तय सीमा से अधिक समय स्क्रीन पर बिताते हैं, तो उनमें निम्नलिखित लक्षण या समस्याएं देखी जा सकती हैं:</p>
-                <ul>
-                    <li><strong>आंखों की कमजोरी:</strong> लंबे समय तक छोटी स्क्रीन देखने से आंखों में सूखापन (Dryness),धुंधलापन और चश्मा लगने की संभावना बढ़ जाती है।  रात में स्क्रीन देखने से नींद आने में दिक्कत होती है और अनिद्रा की समस्या हो सकती है।</li>
-                    <li><strong>चिड़चिड़ापन और अनिद्रा:</strong> स्क्रीन से निकलने वाली ब्लू लाइट (Blue Light) नींद के हार्मोन 'मेलाटोनिन' को प्रभावित करती है।</li>
-                    <li><strong>शारीरिक विकास में कमी:</strong> एक जगह बैठकर मोबाइल देखने से मोटापा बढ़ता है और शारीरिक सक्रियता कम होती है।</li>
-                    <li><strong>बोलने और सोशल स्किल्स में देरी:</strong> जो बच्चे लोगों से बात करने के बजाय स्क्रीन पर समय बिताते हैं, वे देर से बोलना सीखते हैं।</li>
-		    <li><strong>व्यवहार और ध्यान (Focus) में बदलाव: ज्यादा स्क्रीन टाइम से बच्चों का ध्यान किसी चीज़ में नहीं लगता और वे चिड़चिड़े हो सकते हैं।</li>
-                    <li><strong>सामाजिक दूरी: बच्चे बाहरी खेल-कूद और परिवार से कटने लगते हैं, जिससे उनका सोशल डेवलपमेंट धीमा हो जाता है।</li>
+                <!-- Data Table Card -->
+                <article class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-brand-primary pl-3">
+                        उम्र के अनुसार कितना स्क्रीन टाइम सही है?
+                    </h2>
+                    <p class="text-brand-slate mb-6">विशेषज्ञों के अनुसार, अलग-अलग उम्र के बच्चों के लिए स्क्रीन टाइम की सीमा इस प्रकार होनी चाहिए:</p>
+                    
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-sm md:text-base">
+                                    <th class="p-4 font-semibold">बच्चे की उम्र</th>
+                                    <th class="p-4 font-semibold">सही स्क्रीन टाइम (मैक्सिमम)</th>
+                                    <th class="p-4 font-semibold">किस तरह का कंटेंट?</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-sm md:text-base text-slate-700">
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-slate-900">0 से 18 महीने</td>
+                                    <td class="p-4 text-rose-600 font-semibold">बिल्कुल नहीं (0 मिनट)</td>
+                                    <td class="p-4 text-slate-600">केवल दूर रहने वाले परिवार से वीडियो कॉल</td>
+                                </tr>
+                                <tr class="bg-slate-50/50 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-slate-900">18 से 24 महीने</td>
+                                    <td class="p-4 text-amber-600 font-semibold">बहुत कम (कभी-कभी)</td>
+                                    <td class="p-4 text-slate-600">उच्च गुणवत्ता वाले एजुकेशनल प्रोग्राम (माता-पिता के साथ)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-slate-900">2 से 5 साल</td>
+                                    <td class="p-4 text-emerald-600 font-semibold">अधिकतम 1 घंटा प्रतिदिन</td>
+                                    <td class="p-4 text-slate-600">इंटरैक्टिव और ज्ञानवर्धक कार्टून या गेम्स</td>
+                                </tr>
+                                <tr class="bg-slate-50/50 hover:bg-slate-50 transition">
+                                    <td class="p-4 font-medium text-slate-900">6 साल से बड़े बच्चे</td>
+                                    <td class="p-4 text-brand-primary font-semibold">1 से 2 घंटे प्रतिदिन</td>
+                                    <td class="p-4 text-slate-600">पढ़ाई और मनोरंजन का संतुलित मिश्रण (कड़ी निगरानी में)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- Disadvantages Card -->
+                <article class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-brand-primary pl-3">
+                        ज्यादा मोबाइल देखने के नुकसान
+                    </h2>
+                    <p class="text-brand-slate mb-6">यदि बच्चे तय सीमा से अधिक समय स्क्रीन पर बिताते हैं, तो उनमें निम्नलिखित लक्षण या समस्याएं देखी जा सकती हैं:</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex gap-3 items-start bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <span class="text-xl mt-0.5">👁️</span>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">आंखों की कमजोरी</strong>
+                                <span class="text-brand-slate text-sm">लंबे समय तक छोटी स्क्रीन देखने से आंखों में सूखापन (Dryness), धुंधलापन और चश्मा लगने की संभावना बढ़ जाती है।</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <span class="text-xl mt-0.5">🌙</span>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">चिड़चिड़ापन और अनिद्रा</strong>
+                                <span class="text-brand-slate text-sm">स्क्रीन से निकलने वाली ब्लू लाइट (Blue Light) नींद के हार्मोन 'मेलाटोनिन' को प्रभावित करती है। रात में स्क्रीन देखने से नींद आने में दिक्कत होती है।</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <span class="text-xl mt-0.5">🏃‍♂️</span>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">शारीरिक विकास में कमी</strong>
+                                <span class="text-brand-slate text-sm">एक जगह बैठकर मोबाइल देखने से मोटापा बढ़ता है और शारीरिक सक्रियता तेजी से कम होती है।</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <span class="text-xl mt-0.5">🗣️</span>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">बोलने और सोशल स्किल्स में देरी</strong>
+                                <span class="text-brand-slate text-sm">जो बच्चे लोगों से बात करने के बजाय स्क्रीन पर समय बिताते हैं, वे देर से बोलना सीखते हैं और उनका सामाजिक विकास धीमा हो जाता है।</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-start bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <span class="text-xl mt-0.5">🧠</span>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">व्यवहार और ध्यान (Focus) में बदलाव</strong>
+                                <span class="text-brand-slate text-sm">ज्यादा स्क्रीन टाइम से बच्चों का ध्यान किसी भी एक रचनात्मक चीज़ में नहीं लगता और वे बहुत जल्दी चिड़चिड़े हो जाते हैं।</span>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+
+            </main>
+
+            <!-- Right Side: Essential Tips Sidebar -->
+            <aside class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 sticky top-24">
+                <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 mb-4 flex items-center gap-2">
+                    <span class="text-brand-primary">💡</span> माता-पिता के लिए कुछ जरूरी टिप्स
+                </h3>
+                <p class="text-sm text-brand-slate mb-5">बच्चों की इस आदत को व्यवस्थित करने के लिए इन आसान और व्यावहारिक तरीकों को अपनाएं:</p>
+                
+                <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>समय सीमा तय करें:</strong> बच्चे की उम्र के अनुसार रोज़ाना स्क्रीन उपयोग का समय निर्धारित करें और उसका कड़ाई से पालन करवाएँ।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>डिजिटल सुरक्षा:</strong> बच्चों को इंटरनेट के सुरक्षित उपयोग, निजी जानकारी की गोपनीयता और ऑनलाइन शिष्टाचार के बारे में सिखाएँ।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>सोने से 1 घंटा पहले बंद:</strong> सुलाने से कम से कम एक घंटा पहले सभी गैजेट्स दूर रख दें ताकि नींद की गुणवत्ता बेहतर हो सके।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>नो-स्क्रीन ज़ोन:</strong> खाना खाते समय और माता-पिता के मुख्य बेडरूम में मोबाइल के इस्तेमाल पर पूरी तरह पाबंदी लगाएं।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>कमरे में स्क्रीन न रखें:</strong> टीवी या कंप्यूटर को बच्चों के पर्सनल बेडरूम में रखने से उनके उपयोग पर निगरानी रखना कठिन हो जाता है।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>खुद रोल मॉडल बनें:</strong> बच्चे वही सीखते हैं जो देखते हैं। अगर आप खुद हर समय फोन पर रहेंगे, तो बच्चे को भी इसकी लत लगेगी।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>बेहतर विकल्प ढूंढें:</strong> बच्चों को बोर्ड गेम्स (लूडो, चेस), पेंटिंग, क्ले मॉडलिंग या कहानियों की किताबों की तरफ प्रेरित करें।</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-500 font-bold mt-0.5">✓</span> 
+                        <span><strong>सह-देखना (Co-viewing):</strong> जब भी बच्चा स्क्रीन देख रहा हो, कोशिश करें कि आप भी साथ बैठें और संवाद बनाए रखें ताकि प्रक्रिया एकतरफा न रहे।</span>
+                    </li>
+                    <li class="flex items-start gap-2 pt-3 border-t border-slate-100 text-brand-primary font-medium">
+                        <span>🚀</span> 
+                        <span><strong><u>महत्वपूर्ण: </u>स्क्रीन टाइम को पूरी तरह बैन करने के बजाय, उसे डिजिटल डाइट (Digital Diet) की तरह संतुलित मैनेज करें।</strong></span>
+                    </li>
                 </ul>
-  </main>
-               
-	
-      
+            </aside>
 
-        <aside class="sidebar">
-             <h3>माता-पिता के लिए कुछ जरूरी टिप्स</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 20px; color: #666;">बच्चों की इस आदत को छुड़ाने के लिए इन आसान तरीकों को अपनाएं:</p>
+        </div>
+
+        <!-- Lower Full Width Smooth Scroll Info Cards Section -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             
-            <ul class="check-list">
-		    <li><strong>स्क्रीन टाइम की सीमा तय करें</strong> बच्चे की उम्र के अनुसार रोज़ाना स्क्रीन उपयोग का समय निर्धारित करें और उसका पालन करवाएँ।</li>
- 		    <li><strong>डिजिटल सुरक्षा सिखाएँरें</strong> बच्चों को इंटरनेट के सुरक्षित उपयोग, निजी जानकारी की सुरक्षा और ऑनलाइन शिष्टाचार के बारे में समझाएँ।</li>	
-               	    <li><strong>सोने से 1 घंटा पहले स्क्रीन बंद:</strong> बच्चों को सुलाने से कम से कम एक घंटा पहले सभी गैजेट्स दूर रख दें ताकि नींद बेहतर हो सके।</li>
-                    <li><strong>नो-स्क्रीन ज़ोन:</strong> खाना खाते समय और बेडरूम में मोबाइल के इस्तेमाल पर पूरी तरह पाबंदी लगाएं.</li>
-	            <li><strong>बच्चों के कमरे में स्क्रीन न रखें:</strong> टीवी, टैबलेट या मोबाइल को बच्चों के बेडरूम में रखने से उनके उपयोग पर निगरानी रखना कठिन हो जाता है।</li>
-                    <li><strong>खुद उदाहरण बनें: </strong> बच्चे वही सीखते हैं जो अपने माता-पिता को करते देखते हैं। अगर आप खुद हर समय फोन पर रहेंगे, तो बच्चे को भी इसकी आदत लगेगी। बच्चों के सामने अपने फोन का इस्तेमाल सीमित करें और उन्हें अपना कीमती समय दें।</li>
-                    <li><strong>विकल्प ढूंढें: </strong> बच्चों को मोबाइल से दूर रखने के लिए उन्हें बोर्ड गेम्स (लूडो, चेस), पेंटिंग, क्ले मॉडलिंग, पेंटिंग, कहानियां पढ़ने या बाहरी खेलों के लिए प्रेरित करें और अन्य पारिवारिक गतिविधियाँ बच्चों के विकास में मदद करती हैं।।</li>
-		    <li><strong>क्वालिटी कंटेंट चुनें: </strong> जब बच्चे स्क्रीन देखें, तो सुनिश्चित करें कि वह उनके दिमाग के विकास के लिए सही हो, न कि केवल समय काटने के लिए।</li>
-		    <li><strong>साथ में समय बिताना: </strong> शाम को पार्क ले जाना या कोई आउटडोर खेल (साइकिल चलाना, बैडमिंटन) खिलाना।</li>
-  		    <li><strong>सह-देखना (Co-viewing)अपनाएं: </strong> जब भी बच्चा स्क्रीन देख रहा हो, कोशिश करें कि आप भी उसके साथ बैठें। उनसे पूछें कि वो क्या देख रहे हैं। इससे स्क्रीन देखना एकतरफा नहीं रहता और आप बच्चे के साथ बातचीत (Communication) कर पाते हैं।</li>
-        	    <li><strong>महत्वपूर्ण: </strong> स्क्रीन टाइम को पूरी तरह बैन (Ban) करने के बजाय, उसे डिजिटल डाइट (Digital Diet) की तरह मैनेज करें, जहाँ मनोरंजन और सीख दोनों का सही संतुलन हो।</li>
-	           </ul>
-</div>
-	<section class="info-container">
+            <!-- Alert Card 1 -->
+            <div class="alert-card opacity-0 transform translate-y-8 transition-all duration-700 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3">
+                <span class="text-3xl animate-bounce">💡</span>
+                <h3 class="font-bold text-blue-900 text-lg">हर माता-पिता को यह जानना चाहिए</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                    डिजिटल दुनिया से बच्चों को पूरी तरह दूर रखना मुमकिन नहीं है, लेकिन अनुशासन और सही संतुलन बनाकर हम इसके दुष्प्रभावों से उन्हें जरूर बचा सकते हैं।
+                </p>
+            </div>
 
-    <div class="alert-card">
-        <span class="icon">📱</span>
-        <h3>महत्वपूर्ण संदेश</h3>
-        <p> डिजिटल दुनिया से बच्चों को पूरी तरह दूर रखना मुमकिन नहीं है, लेकिन अनुशासन और सही संतुलन बनाकर हम इसके दुष्प्रभावों से उन्हें जरूर बचा सकते हैं।</p>
-    </div>
+            <!-- Alert Card 2 (Warning) -->
+            <div class="alert-card opacity-0 transform translate-y-8 transition-all duration-700 bg-gradient-to-br from-rose-50 to-white border border-rose-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3">
+                <span class="text-3xl animate-bounce">🚨</span>
+                <h3 class="font-bold text-rose-900 text-lg">स्क्रीन एडिक्शन अलर्ट</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                    यदि आपका बच्चा मोबाइल न मिलने पर अत्यधिक गुस्सा, चिड़चिड़ापन या रोना शुरू कर देता है, तो यह <strong>डिजिटल एडिक्शन (Digital Addiction)</strong> का गंभीर संकेत हो सकता है।
+                </p>
+            </div>
 
-    <div class="alert-card warning">
-        <span class="icon">⚠️</span>
-        <h3>चेतावनी</h3>
-        <p>यदि आपका बच्चा मोबाइल न मिलने पर अत्यधिक गुस्सा, चिड़चिड़ापन या रोना शुरू कर देता है, तो यह <strong>डिजिटल एडिक्शन (Digital Addiction)</strong> का संकेत हो सकता है।</p>
-    </div>
+            <!-- Alert Card 3 (Conclusion) -->
+            <div class="alert-card opacity-0 transform translate-y-8 transition-all duration-700 bg-gradient-to-br from-emerald-50 to-white border border-emerald-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3">
+                <span class="text-3xl animate-bounce">🎯</span>
+                <h3 class="font-bold text-emerald-900 text-lg">इस गाइड की मुख्य सीख</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                    सीमित अवधि में उच्च गुणवत्ता वाले शैक्षणिक वीडियो लाभदायक हो सकते हैं, जबकि अत्यधिक स्क्रीन समय नुकसानदेह है। माता-पिता को स्क्रीन-फ्री खेल, पढ़ाई और परिवार के साथ समय को सर्वोच्च प्राथमिकता देनी चाहिए।
+                </p>
+            </div>
 
-    <div class="alert-card conclusion">
-        <span class="icon">✅</span>
-        <h3>निष्कर्ष</h3>
-        <p>स्क्रीन टाइम पूरी तरह बुरा नहीं है, लेकिन<strong>संतुलन</strong> बेहद आवश्यक है। सीमित अवधि में उच्च गुणवत्ता वाले शैक्षणिक वीडियो और इंटरैक्टिव गतिविधियाँ लाभदायक हो सकती हैं,  जबकि अत्यधिक और अनियंत्रित स्क्रीन समय नुकसानदेह है। माता-पिता को बच्चों की उम्र के अनुसार सीमा तय करनी चाहिए तथा स्क्रीन-फ्री खेल, पढ़ाई और परिवार के साथ समय को प्राथमिकता देनी चाहिए।</p>
-    </div>
+ <!-- Alert Card 4 -->
+            <div class="alert-card opacity-0 transform translate-y-8 transition-all duration-700 bg-gradient-to-br from-emerald-50 to-white border border-emerald-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3">
+                <span class="text-3xl animate-bounce">📱</span>
+                <h3 class="font-bold text-emerald-900 text-lg">डिजिटल युग की बड़ी चुनौती</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">बच्चों में बढ़ता स्क्रीन टाइम, कम होती शारीरिक गतिविधि और डिजिटल एडिक्शन आधुनिक पैरेंटिंग की सबसे बड़ी चुनौतियों में से एक हैं।
+                </p>
+            </div>
 
-</section>
-<script>
-const cards = document.querySelectorAll('.alert-card');
+    <!-- Smooth Intersection Observer Script for Bottom Callouts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.alert-card');
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        // Add professional layout transitions smoothly
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, { threshold: 0.15 });
 
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-},{threshold:0.2});
-
-cards.forEach(card=>{
-    card.classList.remove('show');
-    observer.observe(card);
-});
-</script>
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
 </body>
 </html>
